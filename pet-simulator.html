@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cambridge B1 Preliminary (PET) Practice Exam | Reading &amp; Writing</title>
+  <title>Cambridge B1 Preliminary (PET) Simulator | Reading • Writing • Listening • Speaking</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
@@ -15,10 +15,8 @@
       --cambridge-soft: #eef5fb;
       --green: #15803d;
       --green-soft: #dcfce7;
-      --green-border: #86efac;
       --red: #dc2626;
       --red-soft: #fee2e2;
-      --red-border: #fca5a5;
       --amber: #b45309;
       --amber-soft: #fef3c7;
       --ink: #0f172a;
@@ -77,25 +75,18 @@
       flex-shrink: 0;
     }
 
-    .brand-title {
-      font-weight: 700;
-      font-size: 1rem;
-      line-height: 1.25;
-    }
-
-    .brand-sub {
-      font-size: 0.78rem;
-      color: #cbd5e1;
-    }
+    .brand-title { font-weight: 700; font-size: 1rem; line-height: 1.25; }
+    .brand-sub { font-size: 0.78rem; color: #cbd5e1; }
 
     .timer-cluster {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       background: rgba(0, 0, 0, 0.25);
       border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 6px 14px;
       border-radius: 999px;
+      flex-wrap: wrap;
     }
 
     .timer-clock {
@@ -128,76 +119,109 @@
       font-family: var(--font-sans);
       transition: background 0.15s ease;
     }
-
     .bar-btn:hover { background: rgba(255, 255, 255, 0.25); }
 
-    /* Main Full-Page Wrapper */
     .exam-shell {
-      max-width: 1320px;
-      margin: 22px auto;
+      max-width: 1340px;
+      margin: 20px auto;
       padding: 0 20px;
     }
 
-    /* Paper Switcher Tabs (Reading vs Writing) */
-    .paper-switcher {
-      display: flex;
-      gap: 10px;
+    /* 4-Skill Separated Simulator Hub */
+    .simulator-hub {
       background: var(--paper);
-      padding: 8px;
-      border-radius: 12px;
       border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
       margin-bottom: 18px;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
     }
 
-    .paper-tabs-left {
+    .hub-top-row {
       display: flex;
-      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
-      flex: 1;
+      gap: 10px;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e2e8f0;
     }
 
-    .paper-btn {
-      padding: 11px 18px;
-      border-radius: 9px;
-      border: 1px solid transparent;
-      background: transparent;
+    .skills-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+      gap: 12px;
+    }
+
+    .skill-group-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+
+    .skill-group-title {
+      font-size: 0.78rem;
       font-weight: 700;
-      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--cambridge-navy);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .exam-pills-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .exam-select-btn {
+      padding: 7px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 700;
       color: var(--muted);
       cursor: pointer;
-      font-family: var(--font-sans);
       transition: all 0.15s ease;
     }
 
-    .paper-btn:hover { color: var(--ink); background: #f8fafc; }
+    .exam-select-btn:hover {
+      border-color: var(--cambridge-navy);
+      color: var(--cambridge-navy);
+    }
 
-    .paper-btn.active {
-      background-color: var(--cambridge-navy);
+    .exam-select-btn.active {
+      background: var(--cambridge-navy);
+      border-color: var(--cambridge-navy);
       color: #ffffff;
-      box-shadow: 0 2px 8px rgba(0, 56, 101, 0.2);
+      box-shadow: 0 2px 6px rgba(0, 56, 101, 0.2);
     }
 
     .progress-pill {
       font-family: var(--font-mono);
       font-size: 0.82rem;
-      font-weight: 600;
+      font-weight: 700;
       background: var(--cambridge-soft);
       color: var(--cambridge-navy);
-      padding: 7px 14px;
+      padding: 6px 14px;
       border-radius: 999px;
       border: 1px solid #bfdbfe;
     }
 
-    /* Sub-Part Navigation Strip (Reading Parts 1–6) */
+    /* Sub-Part Navigation Strip */
     .parts-nav {
       display: flex;
       gap: 8px;
       overflow-x: auto;
       padding: 4px 2px 14px 2px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .part-pill {
@@ -221,12 +245,7 @@
       color: #ffffff;
     }
 
-    /* Panes */
-    .paper-pane { display: none; }
-    .paper-pane.active { display: block; }
-
-    .part-section {
-      display: none;
+    .part-card {
       background: var(--paper);
       border: 1px solid var(--border);
       border-radius: 14px;
@@ -234,8 +253,6 @@
       box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
       margin-bottom: 20px;
     }
-
-    .part-section.active { display: block; }
 
     .part-header {
       display: flex;
@@ -261,10 +278,7 @@
       margin-bottom: 6px;
     }
 
-    .part-tag.supplement {
-      background: var(--amber-soft);
-      color: var(--amber);
-    }
+    .part-tag.supplement { background: var(--amber-soft); color: var(--amber); }
 
     .part-header h2 {
       font-family: var(--font-serif);
@@ -283,7 +297,6 @@
       margin-bottom: 20px;
     }
 
-    /* Split Screen: Authentic Exam Page Left, Answer Sheet Right */
     .split-exam-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -293,7 +306,7 @@
 
     @media (min-width: 960px) {
       .split-exam-grid {
-        grid-template-columns: 1.45fr 0.95fr;
+        grid-template-columns: 1.42fr 0.98fr;
       }
     }
 
@@ -352,20 +365,12 @@
       background: var(--paper);
       border: 1px solid #e2e8f0;
       border-radius: 10px;
-      padding: 12px 14px;
+      padding: 11px 14px;
       margin-bottom: 10px;
-      transition: border-color 0.15s ease;
     }
 
-    .q-row.correct {
-      border-color: var(--green);
-      background-color: #f0fdf4;
-    }
-
-    .q-row.incorrect {
-      border-color: var(--red);
-      background-color: #fef2f2;
-    }
+    .q-row.correct { border-color: var(--green); background-color: #f0fdf4; }
+    .q-row.incorrect { border-color: var(--red); background-color: #fef2f2; }
 
     .q-row-top {
       display: flex;
@@ -382,27 +387,21 @@
       color: var(--cambridge-navy);
     }
 
-    .choice-pills {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
+    .choice-pills { display: flex; gap: 6px; flex-wrap: wrap; }
 
     .choice-label {
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      padding: 6px 12px;
+      padding: 5px 11px;
       border-radius: 8px;
       border: 1px solid var(--border);
       background: #ffffff;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       cursor: pointer;
       user-select: none;
-      transition: all 0.12s ease;
     }
-
     .choice-label:hover { border-color: var(--cambridge-navy); background: var(--cambridge-soft); }
     .choice-label input { accent-color: var(--cambridge-navy); cursor: pointer; }
 
@@ -412,10 +411,10 @@
       border: 1px solid var(--border);
       font-family: var(--font-sans);
       font-weight: 700;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       background: #ffffff;
       color: var(--ink);
-      min-width: 110px;
+      min-width: 115px;
       cursor: pointer;
     }
 
@@ -424,13 +423,12 @@
       border-radius: 8px;
       border: 1.5px solid var(--border);
       font-family: var(--font-mono);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 600;
-      width: 150px;
+      width: 155px;
       background: #ffffff;
       color: var(--ink);
     }
-
     .gap-input:focus {
       outline: none;
       border-color: var(--cambridge-blue);
@@ -443,11 +441,9 @@
       margin-top: 6px;
       display: none;
     }
-
     .q-row.correct .q-feedback { display: block; color: var(--green); }
     .q-row.incorrect .q-feedback { display: block; color: var(--red); }
 
-    /* Clean Reading Passage Box (Parts 4 & 6) */
     .passage-box {
       background: #ffffff;
       border: 1px solid var(--border);
@@ -510,9 +506,7 @@
       border-bottom: 1px solid #e2e8f0;
       font-size: 0.9rem;
     }
-
     .sentence-opt:last-child { border-bottom: none; }
-
     .sentence-letter {
       font-family: var(--font-mono);
       font-weight: 700;
@@ -520,66 +514,25 @@
       min-width: 24px;
     }
 
-    /* Test 1 / Test 2 Toggle inside Part 1 */
-    .sub-toggle-bar {
-      display: inline-flex;
-      gap: 6px;
-      background: #e2e8f0;
-      padding: 4px;
-      border-radius: 10px;
-    }
-
-    .sub-toggle-btn {
-      border: none;
-      background: transparent;
-      padding: 6px 12px;
-      border-radius: 7px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--muted);
-      cursor: pointer;
-      font-family: var(--font-sans);
-    }
-
-    .sub-toggle-btn.active {
-      background: #ffffff;
-      color: var(--cambridge-navy);
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    }
-
-    /* Action Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 11px 18px;
+      padding: 10px 18px;
       border-radius: 9px;
       border: 1px solid transparent;
       font-family: var(--font-sans);
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       cursor: pointer;
       transition: all 0.15s ease;
     }
-
-    .btn-primary {
-      background: var(--cambridge-navy);
-      color: #ffffff;
-    }
+    .btn-primary { background: var(--cambridge-navy); color: #ffffff; }
     .btn-primary:hover { background: var(--cambridge-navy-dark); }
-
-    .btn-green {
-      background: var(--green);
-      color: #ffffff;
-    }
+    .btn-green { background: var(--green); color: #ffffff; }
     .btn-green:hover { background: #166534; }
-
-    .btn-outline {
-      background: #ffffff;
-      color: var(--ink);
-      border-color: var(--border);
-    }
+    .btn-outline { background: #ffffff; color: var(--ink); border-color: var(--border); }
     .btn-outline:hover { background: #f8fafc; border-color: var(--cambridge-navy); }
 
     .part-footer-nav {
@@ -599,11 +552,10 @@
       background: #ffffff;
       border: 2px solid var(--cambridge-navy);
       border-radius: 14px;
-      padding: 24px;
-      margin-bottom: 22px;
+      padding: 22px;
+      margin-bottom: 20px;
       box-shadow: 0 8px 24px rgba(0, 56, 101, 0.12);
     }
-
     .score-card.visible { display: block; }
 
     .score-top {
@@ -612,21 +564,20 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .score-big {
       font-family: var(--font-mono);
-      font-size: 2.1rem;
+      font-size: 2rem;
       font-weight: 700;
       color: var(--cambridge-navy);
     }
 
     .score-breakdown-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
       gap: 10px;
-      margin-top: 12px;
     }
 
     .part-score-chip {
@@ -636,19 +587,8 @@
       padding: 10px 12px;
       text-align: center;
     }
-
-    .part-score-chip .lbl { font-size: 0.76rem; color: var(--muted); font-weight: 600; }
-    .part-score-chip .val { font-family: var(--font-mono); font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-top: 2px; }
-
-    /* Writing Paper Editor */
-    .writing-card {
-      background: var(--paper);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 24px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
-    }
+    .part-score-chip .lbl { font-size: 0.75rem; color: var(--muted); font-weight: 600; }
+    .part-score-chip .val { font-family: var(--font-mono); font-size: 1.02rem; font-weight: 700; color: var(--ink); margin-top: 2px; }
 
     .writing-textarea {
       width: 100%;
@@ -662,7 +602,6 @@
       resize: vertical;
       margin-top: 10px;
     }
-
     .writing-textarea:focus {
       outline: none;
       border-color: var(--cambridge-blue);
@@ -679,9 +618,36 @@
       background: #f1f5f9;
       color: var(--muted);
     }
-
     .word-counter.ideal { background: var(--green-soft); color: var(--green); }
     .word-counter.warn { background: var(--amber-soft); color: var(--amber); }
+
+    /* Listening Audio Bar */
+    .listening-audio-bar {
+      background: linear-gradient(135deg, #003865 0%, #0f172a 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* Speaking 1-Minute Photo Timer Box */
+    .speaking-stopwatch-box {
+      background: var(--cambridge-soft);
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
     /* Lightbox Zoom */
     .zoom-modal {
@@ -689,7 +655,7 @@
       position: fixed;
       inset: 0;
       z-index: 999;
-      background: rgba(15, 23, 42, 0.85);
+      background: rgba(15, 23, 42, 0.86);
       align-items: center;
       justify-content: center;
       padding: 20px;
@@ -715,7 +681,6 @@
       cursor: pointer;
     }
 
-    /* Toast */
     .sim-toast {
       position: fixed;
       bottom: 22px;
@@ -743,468 +708,103 @@
     <div class="brand-block">
       <div class="avatar-circle">PV</div>
       <div>
-        <div class="brand-title">Cambridge B1 Preliminary (PET) — Practice Examination</div>
-        <div class="brand-sub">Candidate: Patricia V. &bull; Reading (6 Parts) &amp; Writing &bull; Official 45-Minute Timer</div>
+        <div class="brand-title" id="topBarExamTitle">Cambridge B1 Preliminary (PET) — Reading 1</div>
+        <div class="brand-sub">Candidate: Patricia V. &bull; Independent Skill Simulator &bull; 100% English</div>
       </div>
     </div>
 
     <div class="timer-cluster">
-      <span id="timerPaperLabel" style="font-size: 0.78rem; color: #cbd5e1; font-weight: 600;">READING</span>
+      <span id="timerPaperLabel" style="font-size: 0.76rem; color: #cbd5e1; font-weight: 700;">READING 1 (45 MIN)</span>
       <div class="timer-clock" id="examTimerClock">45:00</div>
       <button type="button" class="bar-btn" id="btnToggleTimer" onclick="toggleTimer()">Pause</button>
       <button type="button" class="bar-btn" onclick="resetTimer()">Reset</button>
-      <button type="button" class="bar-btn" id="btnFullscreen" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+      <button type="button" class="bar-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
     </div>
   </header>
 
   <main class="exam-shell">
 
-    <!-- PAPER SWITCHER -->
-    <div class="paper-switcher">
-      <div class="paper-tabs-left">
-        <button type="button" class="paper-btn active" id="tabReading" onclick="switchPaper('reading')">
-          📖 Reading Paper — 6 Parts (45 min)
-        </button>
-        <button type="button" class="paper-btn" id="tabWriting" onclick="switchPaper('writing')">
-          ✍️ Writing Paper — 3 Parts (45 min)
-        </button>
+    <!-- 4-SKILL SEPARATED SIMULATOR SELECTOR HUB -->
+    <section class="simulator-hub">
+      <div class="hub-top-row">
+        <div>
+          <strong style="font-size: 0.95rem; color: var(--ink);">Cambridge B1 Preliminary — Select an Independent Practice Test</strong>
+          <span style="font-size: 0.82rem; color: var(--muted); margin-left: 8px;">(Divided by Reading, Writing, Listening &amp; Speaking)</span>
+        </div>
+        <div class="progress-pill" id="activeProgressPill">Reading 1</div>
       </div>
-      <div class="progress-pill" id="readingProgressPill">Answered: 0 / 36</div>
+
+      <div class="skills-grid-4">
+        <!-- 1. READING -->
+        <div class="skill-group-box">
+          <div class="skill-group-title">
+            <span>📖 Reading (6 Parts)</span>
+            <span>45 min</span>
+          </div>
+          <div class="exam-pills-row">
+            <button type="button" class="exam-select-btn active" data-exam-btn="reading-1" onclick="loadExam('reading-1')">Reading 1</button>
+            <button type="button" class="exam-select-btn" data-exam-btn="reading-2" onclick="loadExam('reading-2')">Reading 2</button>
+          </div>
+        </div>
+
+        <!-- 2. WRITING -->
+        <div class="skill-group-box">
+          <div class="skill-group-title">
+            <span>✍️ Writing (3 Parts)</span>
+            <span>45 min</span>
+          </div>
+          <div class="exam-pills-row">
+            <button type="button" class="exam-select-btn" data-exam-btn="writing-1" onclick="loadExam('writing-1')">Writing 1</button>
+            <button type="button" class="exam-select-btn" data-exam-btn="writing-2" onclick="loadExam('writing-2')">Writing 2</button>
+            <button type="button" class="exam-select-btn" data-exam-btn="writing-3" onclick="loadExam('writing-3')">Writing 3</button>
+          </div>
+        </div>
+
+        <!-- 3. LISTENING -->
+        <div class="skill-group-box">
+          <div class="skill-group-title">
+            <span>🎧 Listening (4 Parts)</span>
+            <span>35 min</span>
+          </div>
+          <div class="exam-pills-row">
+            <button type="button" class="exam-select-btn" data-exam-btn="listening-1" onclick="loadExam('listening-1')">Listening 1</button>
+            <button type="button" class="exam-select-btn" data-exam-btn="listening-2" onclick="loadExam('listening-2')">Listening 2</button>
+          </div>
+        </div>
+
+        <!-- 4. SPEAKING -->
+        <div class="skill-group-box">
+          <div class="skill-group-title">
+            <span>🗣️ Speaking (Visuals &amp; Photos)</span>
+            <span>12 min</span>
+          </div>
+          <div class="exam-pills-row">
+            <button type="button" class="exam-select-btn" data-exam-btn="speaking-1" onclick="loadExam('speaking-1')">Speaking 1</button>
+            <button type="button" class="exam-select-btn" data-exam-btn="speaking-2" onclick="loadExam('speaking-2')">Speaking 2</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div class="score-card" id="scoreSummaryCard">
+      <div class="score-top">
+        <div>
+          <span class="part-tag" id="scoreTagLabel">Official Assessment</span>
+          <h2 style="font-family: var(--font-serif); font-size: 1.55rem; margin: 0;" id="scoreHeadingText">Your Results</h2>
+          <p id="scoreBandFeedback" style="color: var(--muted); font-size: 0.92rem; margin-top: 4px;"></p>
+        </div>
+        <div style="text-align: right;">
+          <div class="score-big" id="scoreBigText">0 / 0</div>
+          <div id="scorePercentText" style="font-weight: 700; color: var(--green); font-size: 0.9rem;">0%</div>
+        </div>
+      </div>
+      <div class="score-breakdown-grid" id="scoreBreakdownGrid"></div>
     </div>
 
-    <!-- ================================================================
-         PAPER 1: READING (6 PARTS)
-         ================================================================ -->
-    <div class="paper-pane active" id="paneReading">
+    <!-- DYNAMIC EXAM CONTAINER (RENDERS ONLY THE SELECTED SKILL & TEST) -->
+    <div id="examContentRoot"></div>
 
-      <!-- READING SCORE SUMMARY (SHOWN AFTER SUBMIT) -->
-      <div class="score-card" id="readingScoreCard">
-        <div class="score-top">
-          <div>
-            <span class="part-tag" style="margin-bottom: 4px;">Official Reading Assessment</span>
-            <h2 style="font-family: var(--font-serif); font-size: 1.55rem; margin: 0;">Your Reading Paper Results</h2>
-            <p id="readingBandFeedback" style="color: var(--muted); font-size: 0.92rem; margin-top: 4px;"></p>
-          </div>
-          <div style="text-align: right;">
-            <div class="score-big" id="readingScoreBig">0 / 36</div>
-            <div id="readingPercentText" style="font-weight: 700; color: var(--green); font-size: 0.9rem;">0%</div>
-          </div>
-        </div>
-        <div class="score-breakdown-grid" id="readingBreakdownGrid"></div>
-      </div>
-
-      <!-- READING PARTS 1–6 PILLS -->
-      <nav class="parts-nav" id="readingPartsNav">
-        <button type="button" class="part-pill active" data-part="1" onclick="switchReadingPart(1)">Part 1: Signs &amp; Short Texts</button>
-        <button type="button" class="part-pill" data-part="2" onclick="switchReadingPart(2)">Part 2: Match 5 People to 8 Texts</button>
-        <button type="button" class="part-pill" data-part="3" onclick="switchReadingPart(3)">Part 3: Multiple Choice Text</button>
-        <button type="button" class="part-pill" data-part="4" onclick="switchReadingPart(4)">Part 4: Gapped Text (Sentences)</button>
-        <button type="button" class="part-pill" data-part="5" onclick="switchReadingPart(5)">Part 5: Multiple-Choice Cloze</button>
-        <button type="button" class="part-pill" data-part="6" onclick="switchReadingPart(6)">Part 6: Open Cloze (Write 1 Word)</button>
-      </nav>
-
-      <!-- ================= PART 1: SIGNS AND SHORT TEXTS ================= -->
-      <section class="part-section active" id="readingPart1">
-        <div class="part-header">
-          <div>
-            <span class="part-tag">Reading Part 1 &bull; Questions 1–5 &bull; Cambridge Preliminary English Test 1</span>
-            <h2>Signs and Short Texts</h2>
-          </div>
-          <div class="sub-toggle-bar" role="group" aria-label="Choose Test 1 or Test 2">
-            <button type="button" class="sub-toggle-btn active" id="btnP1Test1" onclick="switchPart1Test('t1')">Test 1 (pp. 12–13)</button>
-            <button type="button" class="sub-toggle-btn" id="btnP1Test2" onclick="switchPart1Test('t2')">Test 2 (pp. 32–33)</button>
-          </div>
-        </div>
-
-        <div class="part-instructions">
-          <strong>Instructions:</strong> Look at the text in each question (1–5). What does it say? Choose the correct letter <strong>A, B or C</strong> on the answer sheet. Click any exam sheet image to zoom in.
-        </div>
-
-        <div class="split-exam-grid">
-          <div class="exam-sheets-col">
-            <div class="scan-frame">
-              <div class="scan-caption">
-                <span id="p1Img1Caption">Test 1 — Reading Part 1 (Questions 1–2)</span>
-                <span>Click image to zoom</span>
-              </div>
-              <img id="p1Img1" src="assets/exam-pages/t1_part1_p1.jpg" alt="Cambridge PET Reading Part 1 Page 1" onclick="openZoom(this.src)">
-            </div>
-            <div class="scan-frame">
-              <div class="scan-caption">
-                <span id="p1Img2Caption">Test 1 — Reading Part 1 (Questions 3–5)</span>
-                <span>Click image to zoom</span>
-              </div>
-              <img id="p1Img2" src="assets/exam-pages/t1_part1_p2.jpg" alt="Cambridge PET Reading Part 1 Page 2" onclick="openZoom(this.src)">
-            </div>
-          </div>
-
-          <div class="answer-sheet-col">
-            <div class="answer-sheet-title">
-              <span>Answer Sheet — Part 1 (<span id="p1ActiveTestLabel">Test 1</span>)</span>
-              <span>5 Questions</span>
-            </div>
-            <div id="part1QuestionsBox"></div>
-          </div>
-        </div>
-
-        <div class="part-footer-nav">
-          <span style="font-size: 0.84rem; color: var(--muted);">Source: Cambridge Preliminary English Test 1 (Official Answer Key verified)</span>
-          <button type="button" class="btn btn-primary" onclick="switchReadingPart(2)">Next: Reading Part 2 →</button>
-        </div>
-      </section>
-
-      <!-- ================= PART 2: MATCH 5 PEOPLE TO 8 TEXTS ================= -->
-      <section class="part-section" id="readingPart2">
-        <div class="part-header">
-          <div>
-            <span class="part-tag">Reading Part 2 &bull; Questions 6–10 &bull; Cambridge Preliminary English Test 1</span>
-            <h2>Matching: 5 People to 8 Texts (Short Art Courses)</h2>
-          </div>
-        </div>
-
-        <div class="part-instructions">
-          <strong>Instructions:</strong> The five young people (6–10) all want to do an art course during their school holidays. Read the descriptions of eight short art courses (<strong>A–H</strong>) and select the most suitable course for each person.
-        </div>
-
-        <div class="split-exam-grid">
-          <div class="exam-sheets-col">
-            <div class="scan-frame">
-              <div class="scan-caption">
-                <span>Test 1 — Reading Part 2: People (Questions 6–10)</span>
-                <span>Click image to zoom</span>
-              </div>
-              <img src="assets/exam-pages/t1_part2_people.jpg" alt="Reading Part 2 People" onclick="openZoom(this.src)">
-            </div>
-            <div class="scan-frame">
-              <div class="scan-caption">
-                <span>Test 1 — Reading Part 2: Eight Short Art Courses (A–H)</span>
-                <span>Click image to zoom</span>
-              </div>
-              <img src="assets/exam-pages/t1_part2_texts.jpg" alt="Reading Part 2 Texts A to H" onclick="openZoom(this.src)">
-            </div>
-          </div>
-
-          <div class="answer-sheet-col">
-            <div class="answer-sheet-title">
-              <span>Answer Sheet — Part 2</span>
-              <span>Match A–H</span>
-            </div>
-            <div id="part2QuestionsBox"></div>
-          </div>
-        </div>
-
-        <div class="part-footer-nav">
-          <button type="button" class="btn btn-outline" onclick="switchReadingPart(1)">← Back to Part 1</button>
-          <button type="button" class="btn btn-primary" onclick="switchReadingPart(3)">Next: Reading Part 3 →</button>
-        </div>
-      </section>
-
-      <!-- ================= PART 3: LONG TEXT + MULTIPLE CHOICE ================= -->
-      <section class="part-section" id="readingPart3">
-        <div class="part-header">
-          <div>
-            <span class="part-tag">Reading Part 3 &bull; Questions 21–25 &bull; Cambridge Preliminary English Test 1</span>
-            <h2>Long Text &amp; Multiple-Choice Questions</h2>
-          </div>
-        </div>
-
-        <div class="part-instructions">
-          <strong>Instructions:</strong> Read the essay and questions <strong>21–25</strong> below (numbered as on the original Cambridge sheet). For each question, choose the correct letter <strong>A, B, C or D</strong>.
-        </div>
-
-        <div class="split-exam-grid">
-          <div class="exam-sheets-col">
-            <div class="scan-frame">
-              <div class="scan-caption">
-                <span>Test 1 — Reading Text &amp; Question 21</span>
-                <span>Click image to zoom</span>
-              </div>
-              <img src="assets/exam-pages/t1_part3_mc_p1.jpg" alt="Reading Part 3 Long Text Page 1" onclick="openZoom(this.src)">
-            </div>
-            <div class="scan-frame">
-              <div class="scan-caption">
-                <span>Test 1 — Questions 22–25</span>
-                <span>Click image to zoom</span>
-              </div>
-              <img src="assets/exam-pages/t1_part3_mc_p2.jpg" alt="Reading Part 3 Multiple Choice Page 2" onclick="openZoom(this.src)">
-            </div>
-          </div>
-
-          <div class="answer-sheet-col">
-            <div class="answer-sheet-title">
-              <span>Answer Sheet — Part 3</span>
-              <span>Choose A–D</span>
-            </div>
-            <div id="part3QuestionsBox"></div>
-          </div>
-        </div>
-
-        <div class="part-footer-nav">
-          <button type="button" class="btn btn-outline" onclick="switchReadingPart(2)">← Back to Part 2</button>
-          <button type="button" class="btn btn-primary" onclick="switchReadingPart(4)">Next: Reading Part 4 →</button>
-        </div>
-      </section>
-
-      <!-- ================= PART 4: GAPPED TEXT (CHOOSE SENTENCE A–H) ================= -->
-      <section class="part-section" id="readingPart4">
-        <div class="part-header">
-          <div>
-            <span class="part-tag supplement">Reading Part 4 &bull; Questions 16–20 &bull; 2020+ B1 Preliminary Format Supplement</span>
-            <h2>Gapped Text: Choose the Correct Sentence</h2>
-          </div>
-        </div>
-
-        <div class="part-instructions">
-          <strong>Instructions:</strong> Five sentences have been removed from the article below. For each question (<strong>16–20</strong>), choose the correct sentence (<strong>A–H</strong>) to fill each gap. There are <strong>three extra sentences</strong> which you do not need to use.
-        </div>
-
-        <div class="split-exam-grid">
-          <div class="exam-sheets-col">
-            <article class="passage-box">
-              <h3>The Saturday Bike Club</h3>
-              <div class="passage-byline">by Clara Bennett, aged 15</div>
-
-              <p>Last autumn, my older brother Leo noticed that dozens of rusty bicycles were sitting unused in our neighbours' garages. Most of them only needed simple repairs, such as new inner tubes or oiled chains. <span class="gap-badge">16</span> We asked the local community centre if we could borrow their courtyard every Saturday morning, and the manager immediately agreed.</p>
-
-              <p>Before our first session, we worried that nobody would turn up. On Saturday at nine o'clock, however, ten people were already waiting outside the gate with their bikes. <span class="gap-badge">17</span> Fortunately, two retired mechanics who lived nearby offered to teach us how to adjust brakes and gears properly.</p>
-
-              <p>Over the next few months, the workshop grew busier and friendlier. Teenagers, parents, and elderly cyclists all worked side by side, sharing spanners and advice. <span class="gap-badge">18</span> Seeing someone ride away smiling on a bike that had been forgotten for years is always the best moment of my week.</p>
-
-              <p>Keeping the club completely free has not always been easy because replacement cables and tyres can be expensive. <span class="gap-badge">19</span> Thanks to their generosity, we now have a full cupboard of spare parts ready for anyone who needs them.</p>
-
-              <p>Next spring, our school wants to set up a second repair stand during lunchtime so students can cycle to class safely. <span class="gap-badge">20</span> Even if I eventually move away for university, I know the project will keep rolling without me.</p>
-
-              <div class="sentences-bank">
-                <h4>Removed Sentences (Choose 5 from A–H)</h4>
-                <div class="sentence-opt"><span class="sentence-letter">A</span><span>To solve this, a cycle shop in the town centre agreed to donate leftover equipment every month.</span></div>
-                <div class="sentence-opt"><span class="sentence-letter">B</span><span>Although we were thrilled to see so many visitors, we quickly realised we didn't know enough to repair every problem alone.</span></div>
-                <div class="sentence-opt"><span class="sentence-letter">C</span><span>Because the winter weather was unusually dry, we rarely had to cancel a meeting.</span></div>
-                <div class="sentence-opt"><span class="sentence-letter">D</span><span>Several younger classmates have already volunteered to run it once I finish my final exams.</span></div>
-                <div class="sentence-opt"><span class="sentence-letter">E</span><span>So we decided to start a free weekend workshop to help people fix them.</span></div>
-                <div class="sentence-opt"><span class="sentence-letter">F</span><span>My bicycle had actually been stolen from the station two summers earlier.</span></div>
-                <div class="sentence-opt"><span class="sentence-letter">G</span><span>Instead of simply handing over their bikes, most visitors stayed to learn how to do the work themselves.</span></div>
-                <div class="sentence-opt"><span class="sentence-letter">H</span><span>He had never enjoyed cycling to work until the new bridge opened.</span></div>
-              </div>
-            </article>
-          </div>
-
-          <div class="answer-sheet-col">
-            <div class="answer-sheet-title">
-              <span>Answer Sheet — Part 4</span>
-              <span>Choose A–H</span>
-            </div>
-            <div id="part4QuestionsBox"></div>
-          </div>
-        </div>
-
-        <div class="part-footer-nav">
-          <button type="button" class="btn btn-outline" onclick="switchReadingPart(3)">← Back to Part 3</button>
-          <button type="button" class="btn btn-primary" onclick="switchReadingPart(5)">Next: Reading Part 5 →</button>
-        </div>
-      </section>
-
-      <!-- ================= PART 5: MULTIPLE-CHOICE CLOZE ================= -->
-      <section class="part-section" id="readingPart5">
-        <div class="part-header">
-          <div>
-            <span class="part-tag">Reading Part 5 &bull; Questions 26–35 &bull; Cambridge Preliminary English Test 1</span>
-            <h2>Multiple-Choice Cloze: Choose Missing Words</h2>
-          </div>
-        </div>
-
-        <div class="part-instructions">
-          <strong>Instructions:</strong> Read the text below and choose the correct word (<strong>A, B, C or D</strong>) for each numbered space (<strong>26–35</strong>) as shown on the Cambridge sheet.
-        </div>
-
-        <div class="split-exam-grid">
-          <div class="exam-sheets-col">
-            <div class="scan-frame">
-              <div class="scan-caption">
-                <span>Test 1 — Reading Part 5 (Questions 26–35)</span>
-                <span>Click image to zoom</span>
-              </div>
-              <img src="assets/exam-pages/t1_part5_cloze.jpg" alt="Reading Part 5 Multiple Choice Cloze" onclick="openZoom(this.src)">
-            </div>
-          </div>
-
-          <div class="answer-sheet-col">
-            <div class="answer-sheet-title">
-              <span>Answer Sheet — Part 5</span>
-              <span>10 Questions</span>
-            </div>
-            <div id="part5QuestionsBox"></div>
-          </div>
-        </div>
-
-        <div class="part-footer-nav">
-          <button type="button" class="btn btn-outline" onclick="switchReadingPart(4)">← Back to Part 4</button>
-          <button type="button" class="btn btn-primary" onclick="switchReadingPart(6)">Next: Reading Part 6 →</button>
-        </div>
-      </section>
-
-      <!-- ================= PART 6: OPEN CLOZE (WRITE 1 WORD) ================= -->
-      <section class="part-section" id="readingPart6">
-        <div class="part-header">
-          <div>
-            <span class="part-tag supplement">Reading Part 6 &bull; 6 Gaps &bull; 2020+ B1 Preliminary Format Supplement</span>
-            <h2>Open Cloze: Read and Write One Word in Each Gap</h2>
-          </div>
-        </div>
-
-        <div class="part-instructions">
-          <strong>Instructions:</strong> Read the email below and think of the word which best fits each gap. Write <strong>ONE word only</strong> for each gap (<strong>1–6</strong>). Spelling must be correct.
-        </div>
-
-        <div class="split-exam-grid">
-          <div class="exam-sheets-col">
-            <article class="passage-box">
-              <h3>A Weekend Trip to the Lake</h3>
-              <div class="passage-byline">Email from Sam to Elena</div>
-
-              <p>Hi Elena,</p>
-              <p>I'm writing to tell you about the camping trip I went on last weekend with my cousins. We stayed at a campsite near a quiet mountain lake <span class="gap-badge">1</span> is famous for its clear blue water. The journey took much longer <span class="gap-badge">2</span> we had expected because of heavy traffic, so we didn't arrive until sunset.</p>
-              <p>On Saturday morning, we hired kayaks and paddled across the lake. I had never tried kayaking <span class="gap-badge">3</span>, so I was quite nervous at first! However, our instructor was very patient and showed us <span class="gap-badge">4</span> to steer properly. We wouldn't have enjoyed the afternoon so much <span class="gap-badge">5</span> the weather hadn't stayed sunny.</p>
-              <p>You should definitely come with us next time — I'm really looking <span class="gap-badge">6</span> to seeing you soon!</p>
-              <p>Best wishes,<br>Sam</p>
-            </article>
-          </div>
-
-          <div class="answer-sheet-col">
-            <div class="answer-sheet-title">
-              <span>Answer Sheet — Part 6</span>
-              <span>Write ONE word</span>
-            </div>
-            <div id="part6QuestionsBox"></div>
-          </div>
-        </div>
-
-        <div class="part-footer-nav">
-          <button type="button" class="btn btn-outline" onclick="switchReadingPart(5)">← Back to Part 5</button>
-          <button type="button" class="btn btn-green" onclick="gradeReadingPaper()">
-            ✓ Submit &amp; Grade Full Reading Paper (All 6 Parts)
-          </button>
-        </div>
-      </section>
-
-    </div>
-
-    <!-- ================================================================
-         PAPER 2: WRITING (3 PARTS — 45 MINUTES)
-         ================================================================ -->
-    <div class="paper-pane" id="paneWriting">
-
-      <!-- WRITING PART 1: SENTENCE TRANSFORMATIONS -->
-      <div class="writing-card">
-        <div class="part-header">
-          <div>
-            <span class="part-tag">Writing Part 1 &bull; Questions 1–5 &bull; Cambridge Preliminary English Test 1</span>
-            <h2>Sentence Transformations (No More Than 3 Words)</h2>
-          </div>
-        </div>
-
-        <div class="part-instructions">
-          <strong>Instructions:</strong> For each question (<strong>1–5</strong>), complete the second sentence so that it means the same as the first. Use <strong>no more than three words</strong>. Write only the missing words.
-        </div>
-
-        <div class="split-exam-grid">
-          <div class="exam-sheets-col">
-            <div class="scan-frame">
-              <div class="scan-caption">
-                <span>Test 1 — Writing Part 1 (Questions 1–5)</span>
-                <span>Click image to zoom</span>
-              </div>
-              <img src="assets/exam-pages/t1_writing_p1.jpg" alt="Writing Part 1 Sentence Transformations" onclick="openZoom(this.src)">
-            </div>
-          </div>
-
-          <div class="answer-sheet-col">
-            <div class="answer-sheet-title">
-              <span>Answer Sheet — Writing Part 1</span>
-              <span>Max 3 words</span>
-            </div>
-            <div id="writingPart1Box"></div>
-            <button type="button" class="btn btn-primary" style="width: 100%; margin-top: 8px;" onclick="gradeWritingPart1()">
-              ✓ Check Writing Part 1 Answers
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- WRITING PART 2: SHORT COMMUNICATIVE MESSAGE (35–45 WORDS) -->
-      <div class="writing-card">
-        <div class="part-header">
-          <div>
-            <span class="part-tag">Writing Part 2 &bull; Question 6 &bull; Cambridge Preliminary English Test 1</span>
-            <h2>Short Communicative Email (35–45 Words)</h2>
-          </div>
-        </div>
-
-        <div class="split-exam-grid">
-          <div class="exam-sheets-col">
-            <div class="scan-frame">
-              <div class="scan-caption">
-                <span>Test 1 — Writing Part 2 (Question 6)</span>
-                <span>Click image to zoom</span>
-              </div>
-              <img src="assets/exam-pages/t1_writing_p2.jpg" alt="Writing Part 2 Question 6" onclick="openZoom(this.src)">
-            </div>
-          </div>
-
-          <div class="answer-sheet-col" style="position: static;">
-            <div class="answer-sheet-title">
-              <span>Your Answer — Question 6</span>
-              <span class="word-counter" id="wPart2Counter">0 words (Target: 35–45)</span>
-            </div>
-            <textarea id="wPart2Text" class="writing-textarea" placeholder="Write your email in English here..." oninput="updateWordCounter('wPart2Text', 'wPart2Counter', 35, 45)"></textarea>
-            <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
-              <button type="button" class="btn btn-green" onclick="sendWritingToWhatsApp('Writing Part 2 (Question 6 - Email)', 'wPart2Text')">
-                📲 Send Part 2 to Teacher on WhatsApp (+593996375490)
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- WRITING PART 3: EXTENDED WRITING (~100 WORDS) -->
-      <div class="writing-card">
-        <div class="part-header">
-          <div>
-            <span class="part-tag">Writing Part 3 &bull; Question 7 or 8 &bull; Cambridge Preliminary English Test 1</span>
-            <h2>Extended Writing: Letter or Story (~100 Words)</h2>
-          </div>
-        </div>
-
-        <div class="split-exam-grid">
-          <div class="exam-sheets-col">
-            <div class="scan-frame">
-              <div class="scan-caption">
-                <span>Test 1 — Writing Part 3 (Questions 7 &amp; 8)</span>
-                <span>Click image to zoom</span>
-              </div>
-              <img src="assets/exam-pages/t1_writing_p3.jpg" alt="Writing Part 3 Questions 7 and 8" onclick="openZoom(this.src)">
-            </div>
-          </div>
-
-          <div class="answer-sheet-col" style="position: static;">
-            <div class="answer-sheet-title">
-              <span>Your Answer — Part 3</span>
-              <span class="word-counter" id="wPart3Counter">0 words (Target: ~100)</span>
-            </div>
-            <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; font-size: 0.86rem; font-weight: 600;">
-              <label style="cursor: pointer;"><input type="radio" name="wPart3Choice" value="Question 7 (Letter)" checked> Question 7 (Letter)</label>
-              <label style="cursor: pointer;"><input type="radio" name="wPart3Choice" value="Question 8 (Story)"> Question 8 (Story)</label>
-            </div>
-            <textarea id="wPart3Text" class="writing-textarea" style="min-height: 220px;" placeholder="Write your letter or story in English here (about 100 words)..." oninput="updateWordCounter('wPart3Text', 'wPart3Counter', 85, 115)"></textarea>
-            <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
-              <button type="button" class="btn btn-green" onclick="sendWritingPart3ToWhatsApp()">
-                📲 Send Part 3 to Teacher on WhatsApp (+593996375490)
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
   </main>
 
   <!-- IMAGE ZOOM MODAL -->
@@ -1218,223 +818,1132 @@
 
   <script>
     const TEACHER_PHONE = '593996375490';
-    let currentPaper = 'reading';
-    let currentPart1Test = 't1'; // 't1' or 't2'
+    let activeExamId = 'reading-1';
+    let activePartIndex = 1;
     let secondsRemaining = 45 * 60;
+    let activeDefaultSeconds = 45 * 60;
     let timerInterval = null;
     let timerPaused = false;
 
+    // 1-Minute Speaking Photo Stopwatch
+    let photoSeconds = 60;
+    let photoInterval = null;
+
     // =========================================================================
-    // OFFICIAL VERIFIED ANSWER KEYS (100% CHECKED AGAINST PRINTED CAMBRIDGE KEYS)
+    // COMPLETE EXAM DATABASE (9 INDEPENDENT EXAMS ACROSS 4 SKILLS)
     // =========================================================================
-    const KEYS = {
-      // Cambridge Preliminary English Test 1, Test 1 Key (page 104)
-      part1_t1: { p1_1: 'C', p1_2: 'B', p1_3: 'B', p1_4: 'B', p1_5: 'A' },
-      // Cambridge Preliminary English Test 1, Test 2 Key (page 117)
-      part1_t2: { p1_1: 'C', p1_2: 'B', p1_3: 'B', p1_4: 'A', p1_5: 'A' },
-      // Cambridge Preliminary English Test 1, Test 1 Part 2 Key (page 104)
-      part2: { p2_6: 'E', p2_7: 'C', p2_8: 'B', p2_9: 'D', p2_10: 'H' },
-      // Cambridge Preliminary English Test 1, Test 1 Part 4 -> Modern Part 3 Key (page 104)
-      part3: { p3_21: 'C', p3_22: 'D', p3_23: 'A', p3_24: 'B', p3_25: 'C' },
-      // Original 2020+ Format Gapped Text Supplement Key (verified)
-      part4: { p4_16: 'E', p4_17: 'B', p4_18: 'G', p4_19: 'A', p4_20: 'D' },
-      // Cambridge Preliminary English Test 1, Test 1 Part 5 Key (page 104)
-      part5: {
-        p5_26: 'B', p5_27: 'D', p5_28: 'C', p5_29: 'A', p5_30: 'D',
-        p5_31: 'B', p5_32: 'C', p5_33: 'B', p5_34: 'A', p5_35: 'C'
+    const EXAMS = {
+      // -----------------------------------------------------------------------
+      // READING 1 (Cambridge Test 1 — 6 Parts, 45 Minutes)
+      // -----------------------------------------------------------------------
+      'reading-1': {
+        id: 'reading-1',
+        skill: 'reading',
+        title: 'Reading 1 — Cambridge B1 Preliminary (Test 1)',
+        timerLabel: 'READING 1 (45 MIN)',
+        durationSec: 45 * 60,
+        parts: [
+          {
+            num: 1,
+            label: 'Part 1: Signs & Short Texts',
+            tag: 'Reading 1 • Part 1 • Questions 1–5',
+            heading: 'Signs and Short Texts (Test 1, pp. 12–13)',
+            instructions: 'Look at the text in each question (1–5). What does it say? Choose the correct letter A, B or C.',
+            images: [
+              { src: 'assets/exam-pages/t1_part1_p1.jpg', cap: 'Reading 1 — Part 1 (Questions 1–2)' },
+              { src: 'assets/exam-pages/t1_part1_p2.jpg', cap: 'Reading 1 — Part 1 (Questions 3–5)' }
+            ],
+            qType: 'mc3',
+            questions: [
+              { id: 'r1_p1_1', label: 'Question 1', ans: 'C' },
+              { id: 'r1_p1_2', label: 'Question 2', ans: 'B' },
+              { id: 'r1_p1_3', label: 'Question 3', ans: 'B' },
+              { id: 'r1_p1_4', label: 'Question 4', ans: 'B' },
+              { id: 'r1_p1_5', label: 'Question 5', ans: 'A' }
+            ]
+          },
+          {
+            num: 2,
+            label: 'Part 2: Match 5 People',
+            tag: 'Reading 1 • Part 2 • Questions 6–10',
+            heading: 'Match 5 People to 8 Texts: Short Art Courses (pp. 14–15)',
+            instructions: 'The five young people (6–10) all want to do an art course. Read the eight short art courses (A–H) and decide which course would be most suitable for each person.',
+            images: [
+              { src: 'assets/exam-pages/t1_part2_people.jpg', cap: 'Reading 1 — Part 2: People (Questions 6–10)' },
+              { src: 'assets/exam-pages/t1_part2_texts.jpg', cap: 'Reading 1 — Part 2: Eight Short Art Courses (A–H)' }
+            ],
+            qType: 'matchAH',
+            questions: [
+              { id: 'r1_p2_6', label: '6. Alice', ans: 'E' },
+              { id: 'r1_p2_7', label: '7. Darius', ans: 'C' },
+              { id: 'r1_p2_8', label: '8. Cassie', ans: 'B' },
+              { id: 'r1_p2_9', label: '9. Marc', ans: 'D' },
+              { id: 'r1_p2_10', label: '10. Harry', ans: 'H' }
+            ]
+          },
+          {
+            num: 3,
+            label: 'Part 3: Multiple Choice Text',
+            tag: 'Reading 1 • Part 3 • Questions 21–25',
+            heading: 'Long Text & Multiple-Choice Questions: "One to watch!" (pp. 18–19)',
+            instructions: 'Read the essay by Jessica Bourne and questions 21–25. For each question, choose the correct letter A, B, C or D.',
+            images: [
+              { src: 'assets/exam-pages/t1_part3_mc_p1.jpg', cap: 'Reading 1 — Text & Question 21' },
+              { src: 'assets/exam-pages/t1_part3_mc_p2.jpg', cap: 'Reading 1 — Questions 22–25' }
+            ],
+            qType: 'mc4',
+            questions: [
+              { id: 'r1_p3_21', label: 'Question 21', ans: 'C' },
+              { id: 'r1_p3_22', label: 'Question 22', ans: 'D' },
+              { id: 'r1_p3_23', label: 'Question 23', ans: 'A' },
+              { id: 'r1_p3_24', label: 'Question 24', ans: 'B' },
+              { id: 'r1_p3_25', label: 'Question 25', ans: 'C' }
+            ]
+          },
+          {
+            num: 4,
+            label: 'Part 4: Gapped Text',
+            tag: 'Reading 1 • Part 4 • Questions 16–20 (2020+ Format)',
+            isSupplement: true,
+            heading: 'Gapped Text: Choose the Correct Sentence (A–H)',
+            instructions: 'Five sentences have been removed from the text below. For each question (16–20), choose the correct sentence (A–H). There are three extra sentences which you do not need to use.',
+            passageHtml: `
+              <article class="passage-box">
+                <h3>The Saturday Bike Club</h3>
+                <div class="passage-byline">by Clara Bennett, aged 15</div>
+                <p>Last autumn, my older brother Leo noticed that dozens of rusty bicycles were sitting unused in our neighbours' garages. Most of them only needed simple repairs, such as new inner tubes or oiled chains. <span class="gap-badge">16</span> We asked the local community centre if we could borrow their courtyard every Saturday morning, and the manager immediately agreed.</p>
+                <p>Before our first session, we worried that nobody would turn up. On Saturday at nine o'clock, however, ten people were already waiting outside the gate with their bikes. <span class="gap-badge">17</span> Fortunately, two retired mechanics who lived nearby offered to teach us how to adjust brakes and gears properly.</p>
+                <p>Over the next few months, the workshop grew busier and friendlier. Teenagers, parents, and elderly cyclists all worked side by side, sharing spanners and advice. <span class="gap-badge">18</span> Seeing someone ride away smiling on a bike that had been forgotten for years is always the best moment of my week.</p>
+                <p>Keeping the club completely free has not always been easy because replacement cables and tyres can be expensive. <span class="gap-badge">19</span> Thanks to their generosity, we now have a full cupboard of spare parts ready for anyone who needs them.</p>
+                <p>Next spring, our school wants to set up a second repair stand during lunchtime so students can cycle to class safely. <span class="gap-badge">20</span> Even if I eventually move away for university, I know the project will keep rolling without me.</p>
+                <div class="sentences-bank">
+                  <h4>Removed Sentences (Choose 5 from A–H)</h4>
+                  <div class="sentence-opt"><span class="sentence-letter">A</span><span>To solve this, a cycle shop in the town centre agreed to donate leftover equipment every month.</span></div>
+                  <div class="sentence-opt"><span class="sentence-letter">B</span><span>Although we were thrilled to see so many visitors, we quickly realised we didn't know enough to repair every problem alone.</span></div>
+                  <div class="sentence-opt"><span class="sentence-letter">C</span><span>Because the winter weather was unusually dry, we rarely had to cancel a meeting.</span></div>
+                  <div class="sentence-opt"><span class="sentence-letter">D</span><span>Several younger classmates have already volunteered to run it once I finish my final exams.</span></div>
+                  <div class="sentence-opt"><span class="sentence-letter">E</span><span>So we decided to start a free weekend workshop to help people fix them.</span></div>
+                  <div class="sentence-opt"><span class="sentence-letter">F</span><span>My bicycle had actually been stolen from the station two summers earlier.</span></div>
+                  <div class="sentence-opt"><span class="sentence-letter">G</span><span>Instead of simply handing over their bikes, most visitors stayed to learn how to do the work themselves.</span></div>
+                  <div class="sentence-opt"><span class="sentence-letter">H</span><span>He had never enjoyed cycling to work until the new bridge opened.</span></div>
+                </div>
+              </article>
+            `,
+            qType: 'matchAH',
+            questions: [
+              { id: 'r1_p4_16', label: 'Gap 16', ans: 'E' },
+              { id: 'r1_p4_17', label: 'Gap 17', ans: 'B' },
+              { id: 'r1_p4_18', label: 'Gap 18', ans: 'G' },
+              { id: 'r1_p4_19', label: 'Gap 19', ans: 'A' },
+              { id: 'r1_p4_20', label: 'Gap 20', ans: 'D' }
+            ]
+          },
+          {
+            num: 5,
+            label: 'Part 5: Multiple-Choice Cloze',
+            tag: 'Reading 1 • Part 5 • Questions 26–35',
+            heading: 'Multiple-Choice Cloze: "New Home – New School" (p. 20)',
+            instructions: 'Read the text below and choose the correct word (A, B, C or D) for each numbered space (26–35).',
+            images: [
+              { src: 'assets/exam-pages/t1_part5_cloze.jpg', cap: 'Reading 1 — Part 5 (Questions 26–35)' }
+            ],
+            qType: 'mc4',
+            questions: [
+              { id: 'r1_p5_26', label: 'Gap 26', ans: 'B', note: 'decided' },
+              { id: 'r1_p5_27', label: 'Gap 27', ans: 'D', note: 'travel' },
+              { id: 'r1_p5_28', label: 'Gap 28', ans: 'C', note: 'told' },
+              { id: 'r1_p5_29', label: 'Gap 29', ans: 'A', note: 'because' },
+              { id: 'r1_p5_30', label: 'Gap 30', ans: 'D', note: 'miss' },
+              { id: 'r1_p5_31', label: 'Gap 31', ans: 'B', note: 'after' },
+              { id: 'r1_p5_32', label: 'Gap 32', ans: 'C', note: 'from' },
+              { id: 'r1_p5_33', label: 'Gap 33', ans: 'B', note: 'could' },
+              { id: 'r1_p5_34', label: 'Gap 34', ans: 'A', note: 'nervous' },
+              { id: 'r1_p5_35', label: 'Gap 35', ans: 'C', note: 'made' }
+            ]
+          },
+          {
+            num: 6,
+            label: 'Part 6: Open Cloze',
+            tag: 'Reading 1 • Part 6 • Gaps 1–6 (2020+ Format)',
+            isSupplement: true,
+            heading: 'Open Cloze: Write One Word in Each Gap',
+            instructions: 'Read the email below and write ONE word only for each gap (1–6).',
+            passageHtml: `
+              <article class="passage-box">
+                <h3>A Weekend Trip to the Lake</h3>
+                <div class="passage-byline">Email from Sam to Elena</div>
+                <p>Hi Elena,</p>
+                <p>I'm writing to tell you about the camping trip I went on last weekend with my cousins. We stayed at a campsite near a quiet mountain lake <span class="gap-badge">1</span> is famous for its clear blue water. The journey took much longer <span class="gap-badge">2</span> we had expected because of heavy traffic, so we didn't arrive until sunset.</p>
+                <p>On Saturday morning, we hired kayaks and paddled across the lake. I had never tried kayaking <span class="gap-badge">3</span>, so I was quite nervous at first! However, our instructor was very patient and showed us <span class="gap-badge">4</span> to steer properly. We wouldn't have enjoyed the afternoon so much <span class="gap-badge">5</span> the weather hadn't stayed sunny.</p>
+                <p>You should definitely come with us next time — I'm really looking <span class="gap-badge">6</span> to seeing you soon!</p>
+                <p>Best wishes,<br>Sam</p>
+              </article>
+            `,
+            qType: 'text',
+            questions: [
+              { id: 'r1_p6_1', label: 'Gap 1', ans: ['which', 'that'] },
+              { id: 'r1_p6_2', label: 'Gap 2', ans: ['than'] },
+              { id: 'r1_p6_3', label: 'Gap 3', ans: ['before'] },
+              { id: 'r1_p6_4', label: 'Gap 4', ans: ['how'] },
+              { id: 'r1_p6_5', label: 'Gap 5', ans: ['if'] },
+              { id: 'r1_p6_6', label: 'Gap 6', ans: ['forward'] }
+            ]
+          }
+        ]
       },
-      // Original 2020+ Format Open Cloze Supplement Key (verified)
-      part6: {
-        p6_1: ['which', 'that'],
-        p6_2: ['than'],
-        p6_3: ['before'],
-        p6_4: ['how'],
-        p6_5: ['if'],
-        p6_6: ['forward']
+
+      // -----------------------------------------------------------------------
+      // READING 2 (Cambridge Test 2 — 6 Parts, 45 Minutes)
+      // -----------------------------------------------------------------------
+      'reading-2': {
+        id: 'reading-2',
+        skill: 'reading',
+        title: 'Reading 2 — Cambridge B1 Preliminary (Test 2)',
+        timerLabel: 'READING 2 (45 MIN)',
+        durationSec: 45 * 60,
+        parts: [
+          {
+            num: 1,
+            label: 'Part 1: Signs & Short Texts',
+            tag: 'Reading 2 • Part 1 • Questions 1–5',
+            heading: 'Signs and Short Texts (Test 2, pp. 32–33)',
+            instructions: 'Look at the text in each question (1–5). What does it say? Choose the correct letter A, B or C.',
+            images: [
+              { src: 'assets/exam-pages/t2_part1_p1.jpg', cap: 'Reading 2 — Part 1 (Questions 1–2)' },
+              { src: 'assets/exam-pages/t2_part1_p2.jpg', cap: 'Reading 2 — Part 1 (Questions 3–5)' }
+            ],
+            qType: 'mc3',
+            questions: [
+              { id: 'r2_p1_1', label: 'Question 1', ans: 'C' },
+              { id: 'r2_p1_2', label: 'Question 2', ans: 'B' },
+              { id: 'r2_p1_3', label: 'Question 3', ans: 'B' },
+              { id: 'r2_p1_4', label: 'Question 4', ans: 'A' },
+              { id: 'r2_p1_5', label: 'Question 5', ans: 'A' }
+            ]
+          },
+          {
+            num: 2,
+            label: 'Part 2: Match 5 People',
+            tag: 'Reading 2 • Part 2 • Questions 6–10',
+            heading: 'Match 5 People to 8 Texts: Swimming Clubs (pp. 34–35)',
+            instructions: 'The five young people (6–10) all want to find a swimming club they can join. Read the eight swimming clubs (A–H) and decide which club would be most suitable for each person.',
+            images: [
+              { src: 'assets/exam-pages/t2_part2_people.jpg', cap: 'Reading 2 — Part 2: People (Questions 6–10)' },
+              { src: 'assets/exam-pages/t2_part2_texts.jpg', cap: 'Reading 2 — Part 2: Eight Swimming Clubs (A–H)' }
+            ],
+            qType: 'matchAH',
+            questions: [
+              { id: 'r2_p2_6', label: '6. Ralph', ans: 'D' },
+              { id: 'r2_p2_7', label: '7. Marta', ans: 'H' },
+              { id: 'r2_p2_8', label: '8. Fiona', ans: 'C' },
+              { id: 'r2_p2_9', label: '9. Jay', ans: 'G' },
+              { id: 'r2_p2_10', label: '10. Daisy', ans: 'E' }
+            ]
+          },
+          {
+            num: 3,
+            label: 'Part 3: Multiple Choice Text',
+            tag: 'Reading 2 • Part 3 • Questions 21–25',
+            heading: 'Long Text & Multiple-Choice Questions: "Cycling in the countryside" (pp. 38–39)',
+            instructions: 'Read the text by Chris Jones and questions 21–25. For each question, choose the correct letter A, B, C or D.',
+            images: [
+              { src: 'assets/exam-pages/t2_part3_mc_p1.jpg', cap: 'Reading 2 — Text & Questions 21–22' },
+              { src: 'assets/exam-pages/t2_part3_mc_p2.jpg', cap: 'Reading 2 — Questions 23–25' }
+            ],
+            qType: 'mc4',
+            questions: [
+              { id: 'r2_p3_21', label: 'Question 21', ans: 'D' },
+              { id: 'r2_p3_22', label: 'Question 22', ans: 'C' },
+              { id: 'r2_p3_23', label: 'Question 23', ans: 'A' },
+              { id: 'r2_p3_24', label: 'Question 24', ans: 'B' },
+              { id: 'r2_p3_25', label: 'Question 25', ans: 'C' }
+            ]
+          },
+          {
+            num: 4,
+            label: 'Part 4: Gapped Text',
+            tag: 'Reading 2 • Part 4 • Questions 16–20 (2020+ Format)',
+            isSupplement: true,
+            heading: 'Gapped Text: Choose the Correct Sentence (A–H)',
+            instructions: 'Five sentences have been removed from the text below. For each question (16–20), choose the correct sentence (A–H). There are three extra sentences which you do not need to use.',
+            passageHtml: `
+              <article class="passage-box">
+                <h3>Learning to Cook with My Grandmother</h3>
+                <div class="passage-byline">by Lucas Morales, aged 14</div>
+                <p>Until last summer, I hardly ever entered the kitchen except to grab a cold drink from the fridge. Everything changed when I spent three weeks staying at my grandmother's house in the mountains. <span class="gap-badge">16</span> On my very first morning, she handed me an apron and asked me to help her prepare lunch.</p>
+                <p>We began with a traditional vegetable soup that her own mother had taught her to make. At first, I chopped the carrots far too slowly and dropped onion skins all over the floor. <span class="gap-badge">17</span> By the end of the first week, I could slice vegetables neatly without even looking at my hands.</p>
+                <p>My favourite part of each day was visiting the village market early in the morning. My grandmother knew every farmer by name and always checked the fruit carefully before buying anything. <span class="gap-badge">18</span> For instance, she showed me how to smell fresh tomatoes to tell whether they were truly ripe.</p>
+                <p>On the last evening of my stay, I offered to cook dinner for the whole family all by myself. I decided to bake a lemon chicken dish and roast potatoes with herbs from her garden. <span class="gap-badge">19</span> When everyone tasted the food and asked for a second plate, I felt prouder than I had ever felt at school.</p>
+                <p>Now that I am back home, I still cook dinner for my parents every Wednesday evening. <span class="gap-badge">20</span> More importantly, every time I use her recipes, I feel as if I am back in her warm mountain kitchen.</p>
+                <div class="sentences-bank">
+                  <h4>Removed Sentences (Choose 5 from A–H)</h4>
+                  <div class="sentence-opt"><span class="sentence-letter">A</span><span>During those walks, she shared useful tips that you could never find in a cookbook.</span></div>
+                  <div class="sentence-opt"><span class="sentence-letter">B</span><span>Unfortunately, the restaurant near the station had closed down a month earlier.</span></div>
+                  <div class="sentence-opt"><span class="sentence-letter">C</span><span>Because she cooked every single meal from fresh ingredients, there was always something delicious on the stove.</span></div>
+                  <div class="sentence-opt"><span class="sentence-letter">D</span><span>They are delighted to have a break from housework in the middle of the week.</span></div>
+                  <div class="sentence-opt"><span class="sentence-letter">E</span><span>He prefers ordering takeaway pizza whenever he watches football on television.</span></div>
+                  <div class="sentence-opt"><span class="sentence-letter">F</span><span>Instead of getting annoyed, she calmly demonstrated how to hold the knife safely.</span></div>
+                  <div class="sentence-opt"><span class="sentence-letter">G</span><span>We had forgotten to pack our winter boots for the snowstorm.</span></div>
+                  <div class="sentence-opt"><span class="sentence-letter">H</span><span>Although I was nervous about burning the meat, I followed her instructions step by step.</span></div>
+                </div>
+              </article>
+            `,
+            qType: 'matchAH',
+            questions: [
+              { id: 'r2_p4_16', label: 'Gap 16', ans: 'C' },
+              { id: 'r2_p4_17', label: 'Gap 17', ans: 'F' },
+              { id: 'r2_p4_18', label: 'Gap 18', ans: 'A' },
+              { id: 'r2_p4_19', label: 'Gap 19', ans: 'H' },
+              { id: 'r2_p4_20', label: 'Gap 20', ans: 'D' }
+            ]
+          },
+          {
+            num: 5,
+            label: 'Part 5: Multiple-Choice Cloze',
+            tag: 'Reading 2 • Part 5 • Questions 26–35',
+            heading: 'Multiple-Choice Cloze: "Making honey" (p. 40)',
+            instructions: 'Read the text below and choose the correct word (A, B, C or D) for each numbered space (26–35).',
+            images: [
+              { src: 'assets/exam-pages/t2_part5_cloze.jpg', cap: 'Reading 2 — Part 5 (Questions 26–35)' }
+            ],
+            qType: 'mc4',
+            questions: [
+              { id: 'r2_p5_26', label: 'Gap 26', ans: 'D', note: 'by' },
+              { id: 'r2_p5_27', label: 'Gap 27', ans: 'C', note: 'which' },
+              { id: 'r2_p5_28', label: 'Gap 28', ans: 'A', note: 'know' },
+              { id: 'r2_p5_29', label: 'Gap 29', ans: 'B', note: 'visited' },
+              { id: 'r2_p5_30', label: 'Gap 30', ans: 'C', note: 'wondered' },
+              { id: 'r2_p5_31', label: 'Gap 31', ans: 'C', note: 'let' },
+              { id: 'r2_p5_32', label: 'Gap 32', ans: 'D', note: 'more' },
+              { id: 'r2_p5_33', label: 'Gap 33', ans: 'B', note: 'without' },
+              { id: 'r2_p5_34', label: 'Gap 34', ans: 'B', note: 'going' },
+              { id: 'r2_p5_35', label: 'Gap 35', ans: 'A', note: 'become' }
+            ]
+          },
+          {
+            num: 6,
+            label: 'Part 6: Open Cloze',
+            tag: 'Reading 2 • Part 6 • Gaps 1–6 (2020+ Format)',
+            isSupplement: true,
+            heading: 'Open Cloze: Write One Word in Each Gap',
+            instructions: 'Read the notice below and write ONE word only for each gap (1–6).',
+            passageHtml: `
+              <article class="passage-box">
+                <h3>Our School Photography Exhibition</h3>
+                <div class="passage-byline">School Magazine Article by Maya Lin</div>
+                <p>Last Friday, our annual photography exhibition <span class="gap-badge">1</span> held in the main school hall. More than forty students <span class="gap-badge">2</span> belong to the art club sent in their best pictures of nature and city life.</p>
+                <p>According to our headteacher, this year's display was just <span class="gap-badge">3</span> impressive as professional exhibitions she had seen in the city gallery. Visitors could vote for their favourite photograph, <span class="gap-badge">4</span> they were members of the judging panel.</p>
+                <p>The first prize was won <span class="gap-badge">5</span> a fifteen-year-old student whose photo showed a fox in the snow. It was definitely one of the <span class="gap-badge">6</span> memorable events of our school term!</p>
+              </article>
+            `,
+            qType: 'text',
+            questions: [
+              { id: 'r2_p6_1', label: 'Gap 1', ans: ['was'] },
+              { id: 'r2_p6_2', label: 'Gap 2', ans: ['who', 'that'] },
+              { id: 'r2_p6_3', label: 'Gap 3', ans: ['as'] },
+              { id: 'r2_p6_4', label: 'Gap 4', ans: ['unless'] },
+              { id: 'r2_p6_5', label: 'Gap 5', ans: ['by'] },
+              { id: 'r2_p6_6', label: 'Gap 6', ans: ['most'] }
+            ]
+          }
+        ]
       },
-      // Cambridge Preliminary English Test 1, Test 1 Writing Part 1 Key (page 104)
-      writing1: {
-        w1_1: ['if', 'when'],
-        w1_2: ['your'],
-        w1_3: ['do'],
-        w1_4: ["'ve never", 'have never', 've never'],
-        w1_5: ['we play']
+
+      // -----------------------------------------------------------------------
+      // WRITING 1 (Cambridge Test 1 — 45 Minutes)
+      // -----------------------------------------------------------------------
+      'writing-1': {
+        id: 'writing-1',
+        skill: 'writing',
+        title: 'Writing 1 — Cambridge B1 Preliminary (Test 1)',
+        timerLabel: 'WRITING 1 (45 MIN)',
+        durationSec: 45 * 60,
+        part1Img: 'assets/exam-pages/t1_writing_p1.jpg',
+        part1Cap: 'Writing 1 — Part 1: Sentence Transformations (Questions 1–5, p. 21)',
+        part1Questions: [
+          { id: 'w1_1', label: 'Question 1', ans: ['if', 'when'] },
+          { id: 'w1_2', label: 'Question 2', ans: ['your'] },
+          { id: 'w1_3', label: 'Question 3', ans: ['do'] },
+          { id: 'w1_4', label: 'Question 4', ans: ["'ve never", 'have never', 've never'] },
+          { id: 'w1_5', label: 'Question 5', ans: ['we play'] }
+        ],
+        part2Img: 'assets/exam-pages/t1_writing_p2.jpg',
+        part2Cap: 'Writing 1 — Part 2: Question 6 (Email to Emma, p. 22)',
+        part3Img: 'assets/exam-pages/t1_writing_p3.jpg',
+        part3Cap: 'Writing 1 — Part 3: Questions 7 & 8 (Letter or Story, p. 23)',
+        part3Options: ['Question 7 (Letter about restaurants vs home)', 'Question 8 (Story: How I met my best friend)']
+      },
+
+      // -----------------------------------------------------------------------
+      // WRITING 2 (Cambridge Test 2 — 45 Minutes)
+      // -----------------------------------------------------------------------
+      'writing-2': {
+        id: 'writing-2',
+        skill: 'writing',
+        title: 'Writing 2 — Cambridge B1 Preliminary (Test 2)',
+        timerLabel: 'WRITING 2 (45 MIN)',
+        durationSec: 45 * 60,
+        part1Img: 'assets/exam-pages/t2_writing_p1.jpg',
+        part1Cap: 'Writing 2 — Part 1: Sentence Transformations (Questions 1–5, p. 41)',
+        part1Questions: [
+          { id: 'w2_1', label: 'Question 1', ans: ['enjoy'] },
+          { id: 'w2_2', label: 'Question 2', ans: ['less'] },
+          { id: 'w2_3', label: 'Question 3', ans: ['far from', 'far away from'] },
+          { id: 'w2_4', label: 'Question 4', ans: ['there is', "there's"] },
+          { id: 'w2_5', label: 'Question 5', ans: ['do you'] }
+        ],
+        part2Img: 'assets/exam-pages/t2_writing_p2.jpg',
+        part2Cap: 'Writing 2 — Part 2: Question 6 (Email to Alex, p. 42)',
+        part3Img: 'assets/exam-pages/t2_writing_p3.jpg',
+        part3Cap: 'Writing 2 — Part 3: Questions 7 & 8 (Letter or Story, p. 43)',
+        part3Options: ['Question 7 (Letter about school subjects)', 'Question 8 (Story: I was really excited when I opened the letter)']
+      },
+
+      // -----------------------------------------------------------------------
+      // WRITING 3 (Oxford Practice Test — 45 Minutes)
+      // -----------------------------------------------------------------------
+      'writing-3': {
+        id: 'writing-3',
+        skill: 'writing',
+        title: 'Writing 3 — Oxford PET Practice Test',
+        timerLabel: 'WRITING 3 (45 MIN)',
+        durationSec: 45 * 60,
+        part1Html: `
+          <article class="passage-box" style="font-size: 1rem;">
+            <h3>Part 1 — Questions 1–5 (Music)</h3>
+            <p style="font-family: var(--font-sans); font-size: 0.88rem; color: var(--muted);">Complete the second sentence so that it means the same as the first. Use <strong>no more than three words</strong>.</p>
+            <div style="background: #f8fafc; padding: 12px 14px; border-radius: 8px; margin-bottom: 12px; font-family: var(--font-sans); font-size: 0.9rem;">
+              <strong>Example 0:</strong> When I was younger, I practised the piano every day.<br>
+              I used <strong><u>to practise</u></strong> the piano every day when I was younger.
+            </div>
+            <ol style="margin-left: 20px; font-family: var(--font-sans); font-size: 0.92rem; line-height: 1.75;">
+              <li style="margin-bottom: 10px;">My sister was taught the violin by a very talented teacher.<br>A very talented teacher <strong>[1] ....................</strong> the violin.</li>
+              <li style="margin-bottom: 10px;">Only music students can go to the concert in London.<br>You can only go to the concert in London <strong>[2] ....................</strong> a music student.</li>
+              <li style="margin-bottom: 10px;">My music teacher asked me if I liked classical music.<br>My music teacher said to me, &ldquo;<strong>[3] ....................</strong> classical music?&rdquo;</li>
+              <li style="margin-bottom: 10px;">I prefer listening to music to playing music.<br>I like listening to music <strong>[4] ....................</strong> playing music.</li>
+              <li>If you want to learn a musical instrument, you need to practise every day.<br>You can't learn a musical instrument <strong>[5] ....................</strong> you practise every day.</li>
+            </ol>
+          </article>
+        `,
+        part1Questions: [
+          { id: 'w3_1', label: 'Question 1', ans: ['taught my sister'] },
+          { id: 'w3_2', label: 'Question 2', ans: ['if you are', "if you're"] },
+          { id: 'w3_3', label: 'Question 3', ans: ['do you like'] },
+          { id: 'w3_4', label: 'Question 4', ans: ['more than'] },
+          { id: 'w3_5', label: 'Question 5', ans: ['unless'] }
+        ],
+        part2Html: `
+          <article class="passage-box" style="font-family: var(--font-sans); font-size: 0.95rem;">
+            <h3>Part 2 — Question 6 (Card to Josh)</h3>
+            <p style="margin-top: 8px;">You have just spent the weekend with your English friend, <strong>Josh</strong>.</p>
+            <p>Write a card to send to Josh. In your card, you should:</p>
+            <ul style="margin: 8px 0 12px 22px;">
+              <li>thank him for the weekend</li>
+              <li>say what you enjoyed most</li>
+              <li>invite him to stay with you.</li>
+            </ul>
+            <p><strong>Write 35–45 words.</strong></p>
+          </article>
+        `,
+        part3Html: `
+          <article class="passage-box" style="font-family: var(--font-sans); font-size: 0.95rem;">
+            <h3>Part 3 — Write an answer to ONE of the questions (7 or 8)</h3>
+            <div style="background: #f8fafc; border: 1px solid var(--border); padding: 14px; border-radius: 8px; margin: 12px 0;">
+              <strong>Question 7 (Letter to an English friend):</strong><br>
+              <em>&ldquo;Last week, I went sailing with some friends. Tell me about the activities you like doing. Why do you enjoy doing them?&rdquo;</em><br>
+              Now write a letter, answering your friend's questions (about 100 words).
+            </div>
+            <div style="background: #f8fafc; border: 1px solid var(--border); padding: 14px; border-radius: 8px;">
+              <strong>Question 8 (Story):</strong><br>
+              Your English teacher has asked you to write a story. Your story must begin with this sentence:<br>
+              <em>&ldquo;I woke up in the middle of the night.&rdquo;</em><br>
+              Write your story in about 100 words.
+            </div>
+          </article>
+        `,
+        part3Options: ['Question 7 (Letter about activities)', 'Question 8 (Story: I woke up in the middle of the night)']
+      },
+
+      // -----------------------------------------------------------------------
+      // LISTENING 1 (Cambridge Test 1 — 4 Parts, 25 Questions, 35 Minutes)
+      // -----------------------------------------------------------------------
+      'listening-1': {
+        id: 'listening-1',
+        skill: 'listening',
+        title: 'Listening 1 — Cambridge B1 Preliminary (Test 1)',
+        timerLabel: 'LISTENING 1 (35 MIN)',
+        durationSec: 35 * 60,
+        defaultAudioSrc: 'assets/audio/listening/test1.mp3',
+        parts: [
+          {
+            num: 1,
+            label: 'Part 1: Pictures (Q1–7)',
+            tag: 'Listening 1 • Part 1 • Questions 1–7',
+            heading: 'Part 1: Seven Short Recordings (pp. 24–26)',
+            instructions: 'There are seven questions in this part. For each question there are three pictures and a short recording. Choose the correct answer A, B or C.',
+            images: [
+              { src: 'assets/exam-pages/t1_list_p1.jpg', cap: 'Listening 1 — Part 1 (Example & Questions 1–2)' },
+              { src: 'assets/exam-pages/t1_list_p2.jpg', cap: 'Listening 1 — Part 1 (Questions 3–5)' },
+              { src: 'assets/exam-pages/t1_list_p3.jpg', cap: 'Listening 1 — Part 1 (Questions 6–7)' }
+            ],
+            qType: 'mc3',
+            questions: [
+              { id: 'l1_1', label: 'Question 1', ans: 'C' },
+              { id: 'l1_2', label: 'Question 2', ans: 'B' },
+              { id: 'l1_3', label: 'Question 3', ans: 'A' },
+              { id: 'l1_4', label: 'Question 4', ans: 'B' },
+              { id: 'l1_5', label: 'Question 5', ans: 'C' },
+              { id: 'l1_6', label: 'Question 6', ans: 'A' },
+              { id: 'l1_7', label: 'Question 7', ans: 'C' }
+            ]
+          },
+          {
+            num: 2,
+            label: 'Part 2: Interview (Q8–13)',
+            tag: 'Listening 1 • Part 2 • Questions 8–13',
+            heading: 'Part 2: Interview with Singer Nick Parker (pp. 27–28)',
+            instructions: 'You will hear an interview with a singer called Nick Parker who plays in a band called Krispy with his sister Mel. For each question, choose the correct answer A, B or C.',
+            images: [
+              { src: 'assets/exam-pages/t1_list_p4.jpg', cap: 'Listening 1 — Part 2 (Questions 8–11)' },
+              { src: 'assets/exam-pages/t1_list_p5.jpg', cap: 'Listening 1 — Part 2 (Questions 12–13)' }
+            ],
+            qType: 'mc3',
+            questions: [
+              { id: 'l1_8', label: 'Question 8', ans: 'B' },
+              { id: 'l1_9', label: 'Question 9', ans: 'C' },
+              { id: 'l1_10', label: 'Question 10', ans: 'B' },
+              { id: 'l1_11', label: 'Question 11', ans: 'A' },
+              { id: 'l1_12', label: 'Question 12', ans: 'A' },
+              { id: 'l1_13', label: 'Question 13', ans: 'C' }
+            ]
+          },
+          {
+            num: 3,
+            label: 'Part 3: Note Completion (Q14–19)',
+            tag: 'Listening 1 • Part 3 • Questions 14–19',
+            heading: 'Part 3: Saturday Course — Fill in the Missing Information (p. 29)',
+            instructions: 'You will hear a man called Ben telling a youth group about a course they can do on Saturdays. For each question (14–19), fill in the missing word or number.',
+            images: [
+              { src: 'assets/exam-pages/t1_list_p6.jpg', cap: 'Listening 1 — Part 3 (Questions 14–19)' }
+            ],
+            qType: 'text',
+            questions: [
+              { id: 'l1_14', label: 'Gap 14', ans: ['nature'] },
+              { id: 'l1_15', label: 'Gap 15', ans: ['wildlife'] },
+              { id: 'l1_16', label: 'Gap 16', ans: ['forest'] },
+              { id: 'l1_17', label: 'Gap 17', ans: ['12', 'twelve'] },
+              { id: 'l1_18', label: 'Gap 18', ans: ['fire'] },
+              { id: 'l1_19', label: 'Gap 19', ans: ['birdhouse', 'bird house'] }
+            ]
+          },
+          {
+            num: 4,
+            label: 'Part 4: YES / NO (Q20–25)',
+            tag: 'Listening 1 • Part 4 • Questions 20–25',
+            heading: 'Part 4: School Sports Day Poster — YES (A) or NO (B) (p. 30)',
+            instructions: 'Decide if each sentence (20–25) is correct or incorrect. Choose A for YES or B for NO.',
+            images: [
+              { src: 'assets/exam-pages/t1_list_p7.jpg', cap: 'Listening 1 — Part 4 (Questions 20–25)' }
+            ],
+            qType: 'mc2',
+            questions: [
+              { id: 'l1_20', label: 'Question 20', ans: 'A' },
+              { id: 'l1_21', label: 'Question 21', ans: 'B' },
+              { id: 'l1_22', label: 'Question 22', ans: 'B' },
+              { id: 'l1_23', label: 'Question 23', ans: 'A' },
+              { id: 'l1_24', label: 'Question 24', ans: 'B' },
+              { id: 'l1_25', label: 'Question 25', ans: 'B' }
+            ]
+          }
+        ]
+      },
+
+      // -----------------------------------------------------------------------
+      // LISTENING 2 (Cambridge Test 2 — 4 Parts, 25 Questions, 35 Minutes)
+      // -----------------------------------------------------------------------
+      'listening-2': {
+        id: 'listening-2',
+        skill: 'listening',
+        title: 'Listening 2 — Cambridge B1 Preliminary (Test 2)',
+        timerLabel: 'LISTENING 2 (35 MIN)',
+        durationSec: 35 * 60,
+        defaultAudioSrc: 'assets/audio/listening/test2.mp3',
+        parts: [
+          {
+            num: 1,
+            label: 'Part 1: Pictures (Q1–7)',
+            tag: 'Listening 2 • Part 1 • Questions 1–7',
+            heading: 'Part 1: Seven Short Recordings (pp. 44–46)',
+            instructions: 'There are seven questions in this part. For each question there are three pictures and a short recording. Choose the correct answer A, B or C.',
+            images: [
+              { src: 'assets/exam-pages/t2_list_p1.jpg', cap: 'Listening 2 — Part 1 (Example & Questions 1–2)' },
+              { src: 'assets/exam-pages/t2_list_p2.jpg', cap: 'Listening 2 — Part 1 (Questions 3–5)' },
+              { src: 'assets/exam-pages/t2_list_p3.jpg', cap: 'Listening 2 — Part 1 (Questions 6–7)' }
+            ],
+            qType: 'mc3',
+            questions: [
+              { id: 'l2_1', label: 'Question 1', ans: 'B' },
+              { id: 'l2_2', label: 'Question 2', ans: 'C' },
+              { id: 'l2_3', label: 'Question 3', ans: 'A' },
+              { id: 'l2_4', label: 'Question 4', ans: 'C' },
+              { id: 'l2_5', label: 'Question 5', ans: 'B' },
+              { id: 'l2_6', label: 'Question 6', ans: 'B' },
+              { id: 'l2_7', label: 'Question 7', ans: 'C' }
+            ]
+          },
+          {
+            num: 2,
+            label: 'Part 2: Multiple Choice (Q8–13)',
+            tag: 'Listening 2 • Part 2 • Questions 8–13',
+            heading: 'Part 2: Multiple-Choice Questions (pp. 47–48)',
+            instructions: 'For each question (8–13), choose the correct answer A, B or C.',
+            images: [
+              { src: 'assets/exam-pages/t2_list_p4.jpg', cap: 'Listening 2 — Part 2 (Questions 8–11)' },
+              { src: 'assets/exam-pages/t2_list_p5.jpg', cap: 'Listening 2 — Part 2 (Questions 12–13)' }
+            ],
+            qType: 'mc3',
+            questions: [
+              { id: 'l2_8', label: 'Question 8', ans: 'A' },
+              { id: 'l2_9', label: 'Question 9', ans: 'C' },
+              { id: 'l2_10', label: 'Question 10', ans: 'B' },
+              { id: 'l2_11', label: 'Question 11', ans: 'C' },
+              { id: 'l2_12', label: 'Question 12', ans: 'A' },
+              { id: 'l2_13', label: 'Question 13', ans: 'B' }
+            ]
+          },
+          {
+            num: 3,
+            label: 'Part 3: Note Completion (Q14–19)',
+            tag: 'Listening 2 • Part 3 • Questions 14–19',
+            heading: 'Part 3: Griffon the Horse — Fill in the Missing Information (p. 49)',
+            instructions: 'You will hear a girl called Hannah talking about her family’s champion horse called Griffon. For each question (14–19), fill in the missing word.',
+            images: [
+              { src: 'assets/exam-pages/t2_list_p6.jpg', cap: 'Listening 2 — Part 3 (Questions 14–19)' }
+            ],
+            qType: 'text',
+            questions: [
+              { id: 'l2_14', label: 'Gap 14', ans: ['march'] },
+              { id: 'l2_15', label: 'Gap 15', ans: ['england'] },
+              { id: 'l2_16', label: 'Gap 16', ans: ['father'] },
+              { id: 'l2_17', label: 'Gap 17', ans: ['money'] },
+              { id: 'l2_18', label: 'Gap 18', ans: ['trainer'] },
+              { id: 'l2_19', label: 'Gap 19', ans: ['apples'] }
+            ]
+          },
+          {
+            num: 4,
+            label: 'Part 4: YES / NO (Q20–25)',
+            tag: 'Listening 2 • Part 4 • Questions 20–25',
+            heading: 'Part 4: Sharing a Bedroom — YES (A) or NO (B) (p. 50)',
+            instructions: 'Decide if each sentence (20–25) is correct or incorrect. Choose A for YES or B for NO.',
+            images: [
+              { src: 'assets/exam-pages/t2_list_p7.jpg', cap: 'Listening 2 — Part 4 (Questions 20–25)' }
+            ],
+            qType: 'mc2',
+            questions: [
+              { id: 'l2_20', label: 'Question 20', ans: 'A' },
+              { id: 'l2_21', label: 'Question 21', ans: 'B' },
+              { id: 'l2_22', label: 'Question 22', ans: 'A' },
+              { id: 'l2_23', label: 'Question 23', ans: 'A' },
+              { id: 'l2_24', label: 'Question 24', ans: 'B' },
+              { id: 'l2_25', label: 'Question 25', ans: 'A' }
+            ]
+          }
+        ]
+      },
+
+      // -----------------------------------------------------------------------
+      // SPEAKING 1 (Cambridge Test 1 — 12 Minutes, Visuals 1A, Photos 1B & 1C)
+      // -----------------------------------------------------------------------
+      'speaking-1': {
+        id: 'speaking-1',
+        skill: 'speaking',
+        title: 'Speaking 1 — Cambridge B1 Preliminary (Test 1)',
+        timerLabel: 'SPEAKING 1 (12 MIN)',
+        durationSec: 12 * 60,
+        parts: [
+          {
+            num: 1,
+            label: 'Part 1: Personal Questions (2–3 min)',
+            tag: 'Speaking 1 • Part 1 • Phase 1 & Phase 2',
+            heading: 'Part 1: Personal Information & Interests (pp. 92–93)',
+            instructions: 'Practice answering these official examiner questions aloud in full sentences (2–3 minutes).',
+            leftImages: [
+              { src: 'assets/exam-pages/t1_speak_frame1.jpg', cap: 'Speaking 1 — Part 1 Phase 1 (Examiner Frame, p. 92)' }
+            ],
+            rightImages: [
+              { src: 'assets/exam-pages/t1_speak_frame2.jpg', cap: 'Speaking 1 — Part 1 Phase 2 & Part 2 Prompt (p. 93)' }
+            ]
+          },
+          {
+            num: 2,
+            label: 'Part 2: Visual Situation 1A (2–3 min)',
+            tag: 'Speaking 1 • Part 2 • Visual Material 1A',
+            heading: 'Part 2: Simulated Situation — "Goodbye Present" (Picture 1A)',
+            instructions: 'Situation: A girl is going to live in another city. The people in her tennis club want to give her a goodbye present. Look at Picture 1A, talk about the different things they could give her, and decide which would be best.',
+            leftImages: [
+              { src: 'assets/exam-pages/speak_visual_1a.jpg', cap: 'Official Visual Material 1A — Goodbye Present (Click to zoom)' }
+            ],
+            rightImages: [
+              { src: 'assets/exam-pages/t1_speak_frame2.jpg', cap: 'Examiner Instructions — Part 2 (p. 93)' }
+            ]
+          },
+          {
+            num: 3,
+            label: 'Part 3 & 4: Colour Photos 1B & 1C (6 min)',
+            tag: 'Speaking 1 • Part 3 & Part 4 • Photographs 1B & 1C',
+            heading: 'Part 3 (Describe a Colour Photo for 1 Minute) & Part 4 (Discussion: Enjoying Music)',
+            instructions: 'Part 3: Describe Photograph 1B and Photograph 1C for 1 minute each (people, place, actions, background). Part 4: Talk about when you enjoy music, what you do while listening, and the types of music you like or dislike.',
+            hasStopwatch: true,
+            leftImages: [
+              { src: 'assets/exam-pages/speak_photo_1b.jpg', cap: 'Official Colour Photograph 1B — People Enjoying Music (Candidate A)' },
+              { src: 'assets/exam-pages/speak_photo_1c.jpg', cap: 'Official Colour Photograph 1C — People Enjoying Music (Candidate B)' }
+            ],
+            rightImages: [
+              { src: 'assets/exam-pages/t1_speak_frame3.jpg', cap: 'Examiner Prompts — Part 3 & Part 4 (p. 94)' }
+            ]
+          }
+        ]
+      },
+
+      // -----------------------------------------------------------------------
+      // SPEAKING 2 (Cambridge Test 2 — 12 Minutes, Visuals 2A, Photos 2B & 2C)
+      // -----------------------------------------------------------------------
+      'speaking-2': {
+        id: 'speaking-2',
+        skill: 'speaking',
+        title: 'Speaking 2 — Cambridge B1 Preliminary (Test 2)',
+        timerLabel: 'SPEAKING 2 (12 MIN)',
+        durationSec: 12 * 60,
+        parts: [
+          {
+            num: 1,
+            label: 'Part 1: Personal Questions (2–3 min)',
+            tag: 'Speaking 2 • Part 1 • Phase 1 & Phase 2',
+            heading: 'Part 1: Personal Information & Free Time (pp. 95–96)',
+            instructions: 'Practice answering these official examiner questions aloud in full sentences (2–3 minutes).',
+            leftImages: [
+              { src: 'assets/exam-pages/t2_speak_frame1.jpg', cap: 'Speaking 2 — Part 1 Phase 1 (Examiner Frame, p. 95)' }
+            ],
+            rightImages: [
+              { src: 'assets/exam-pages/t2_speak_frame2.jpg', cap: 'Speaking 2 — Part 1 Phase 2 & Part 2 Prompt (p. 96)' }
+            ]
+          },
+          {
+            num: 2,
+            label: 'Part 2: Visual Situation 2A (2–3 min)',
+            tag: 'Speaking 2 • Part 2 • Visual Material 2A',
+            heading: 'Part 2: Simulated Situation — "Trip to England" (Picture 2A)',
+            instructions: 'Situation: A girl is going to spend two weeks living with a family in England to improve her English. She has put the clothes she needs in her bag. Look at Picture 2A, talk about the other things she will need to take, and say which will be the most important.',
+            leftImages: [
+              { src: 'assets/exam-pages/speak_visual_2a.jpg', cap: 'Official Visual Material 2A — Trip to England (Click to zoom)' }
+            ],
+            rightImages: [
+              { src: 'assets/exam-pages/t2_speak_frame2.jpg', cap: 'Examiner Instructions — Part 2 (p. 96)' }
+            ]
+          },
+          {
+            num: 3,
+            label: 'Part 3 & 4: Colour Photos 2B & 2C (6 min)',
+            tag: 'Speaking 2 • Part 3 & Part 4 • Photographs 2B & 2C',
+            heading: 'Part 3 (Describe a Colour Photo for 1 Minute) & Part 4 (Discussion: Having a Snack)',
+            instructions: 'Part 3: Describe Photograph 2B and Photograph 2C for 1 minute each. Part 4: Talk about what you like to eat when you have a snack, where you like to have it, and who you like to share snacks with.',
+            hasStopwatch: true,
+            leftImages: [
+              { src: 'assets/exam-pages/speak_photo_2b.jpg', cap: 'Official Colour Photograph 2B — People Having a Snack (Candidate A)' },
+              { src: 'assets/exam-pages/speak_photo_2c.jpg', cap: 'Official Colour Photograph 2C — People Having a Snack (Candidate B)' }
+            ],
+            rightImages: [
+              { src: 'assets/exam-pages/t2_speak_frame3.jpg', cap: 'Examiner Prompts — Part 3 & Part 4 (p. 97)' }
+            ]
+          }
+        ]
       }
     };
 
-    const PART5_WORD_LABELS = {
-      p5_26: 'decided', p5_27: 'travel', p5_28: 'told', p5_29: 'because', p5_30: 'miss',
-      p5_31: 'after', p5_32: 'from', p5_33: 'could', p5_34: 'nervous', p5_35: 'made'
-    };
-
-    const PART2_PEOPLE = [
-      { id: 'p2_6', num: 6, name: 'Alice' },
-      { id: 'p2_7', num: 7, name: 'Darius' },
-      { id: 'p2_8', num: 8, name: 'Cassie' },
-      { id: 'p2_9', num: 9, name: 'Marc' },
-      { id: 'p2_10', num: 10, name: 'Harry' }
-    ];
-
     // =========================================================================
-    // BUILD ANSWER SHEETS DYNAMICALLY
+    // LOAD & RENDER INDEPENDENT EXAM
     // =========================================================================
-    function buildAnswerSheets() {
-      // Part 1 (Q1–5, A/B/C)
-      const p1Box = document.getElementById('part1QuestionsBox');
-      p1Box.innerHTML = [1, 2, 3, 4, 5].map(n => `
-        <div class="q-row" id="row_p1_${n}">
-          <div class="q-row-top">
-            <span class="q-num">Question ${n}</span>
-            <div class="choice-pills">
-              ${['A', 'B', 'C'].map(opt => `
-                <label class="choice-label">
-                  <input type="radio" name="p1_${n}" value="${opt}" onchange="updateReadingProgress()"> ${opt}
-                </label>
-              `).join('')}
-            </div>
-          </div>
-          <div class="q-feedback" id="fb_p1_${n}"></div>
-        </div>
-      `).join('');
+    function loadExam(examId, pushUrl = true) {
+      if (!EXAMS[examId]) examId = 'reading-1';
+      activeExamId = examId;
+      activePartIndex = 1;
+      const exam = EXAMS[examId];
 
-      // Part 2 (Q6–10, A–H)
-      const p2Box = document.getElementById('part2QuestionsBox');
-      p2Box.innerHTML = PART2_PEOPLE.map(p => `
-        <div class="q-row" id="row_${p.id}">
-          <div class="q-row-top">
-            <span class="q-num">${p.num}. ${p.name}</span>
-            <select class="choice-select" name="${p.id}" onchange="updateReadingProgress()">
-              <option value="">Select (A–H)</option>
-              ${['A','B','C','D','E','F','G','H'].map(l => `<option value="${l}">Course ${l}</option>`).join('')}
-            </select>
-          </div>
-          <div class="q-feedback" id="fb_${p.id}"></div>
-        </div>
-      `).join('');
+      // Update top bar & hub buttons
+      document.getElementById('topBarExamTitle').textContent = `Cambridge B1 Preliminary (PET) — ${exam.title}`;
+      document.getElementById('timerPaperLabel').textContent = exam.timerLabel;
+      document.querySelectorAll('[data-exam-btn]').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-exam-btn') === examId);
+      });
 
-      // Part 3 (Q21–25, A–D)
-      const p3Box = document.getElementById('part3QuestionsBox');
-      p3Box.innerHTML = [21, 22, 23, 24, 25].map(n => `
-        <div class="q-row" id="row_p3_${n}">
-          <div class="q-row-top">
-            <span class="q-num">Question ${n}</span>
-            <div class="choice-pills">
-              ${['A', 'B', 'C', 'D'].map(opt => `
-                <label class="choice-label">
-                  <input type="radio" name="p3_${n}" value="${opt}" onchange="updateReadingProgress()"> ${opt}
-                </label>
-              `).join('')}
-            </div>
-          </div>
-          <div class="q-feedback" id="fb_p3_${n}"></div>
-        </div>
-      `).join('');
+      // Reset score card
+      document.getElementById('scoreSummaryCard').classList.remove('visible');
 
-      // Part 4 (Q16–20, A–H)
-      const p4Box = document.getElementById('part4QuestionsBox');
-      p4Box.innerHTML = [16, 17, 18, 19, 20].map(n => `
-        <div class="q-row" id="row_p4_${n}">
-          <div class="q-row-top">
-            <span class="q-num">Gap ${n}</span>
-            <select class="choice-select" name="p4_${n}" onchange="updateReadingProgress()">
-              <option value="">Select (A–H)</option>
-              ${['A','B','C','D','E','F','G','H'].map(l => `<option value="${l}">Sentence ${l}</option>`).join('')}
-            </select>
-          </div>
-          <div class="q-feedback" id="fb_p4_${n}"></div>
-        </div>
-      `).join('');
+      // Reset timer to this exam's official duration
+      activeDefaultSeconds = exam.durationSec;
+      secondsRemaining = exam.durationSec;
+      timerPaused = false;
+      document.getElementById('btnToggleTimer').textContent = 'Pause';
+      startTimer();
 
-      // Part 5 (Q26–35, A–D)
-      const p5Box = document.getElementById('part5QuestionsBox');
-      p5Box.innerHTML = [26, 27, 28, 29, 30, 31, 32, 33, 34, 35].map(n => `
-        <div class="q-row" id="row_p5_${n}">
-          <div class="q-row-top">
-            <span class="q-num">Gap ${n}</span>
-            <div class="choice-pills">
-              ${['A', 'B', 'C', 'D'].map(opt => `
-                <label class="choice-label">
-                  <input type="radio" name="p5_${n}" value="${opt}" onchange="updateReadingProgress()"> ${opt}
-                </label>
-              `).join('')}
-            </div>
-          </div>
-          <div class="q-feedback" id="fb_p5_${n}"></div>
-        </div>
-      `).join('');
+      if (pushUrl && window.history && window.history.replaceState) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('exam', examId);
+        window.history.replaceState({}, '', url.toString());
+      }
 
-      // Part 6 (Gaps 1–6, Write 1 word)
-      const p6Box = document.getElementById('part6QuestionsBox');
-      p6Box.innerHTML = [1, 2, 3, 4, 5, 6].map(n => `
-        <div class="q-row" id="row_p6_${n}">
-          <div class="q-row-top">
-            <span class="q-num">Gap ${n}</span>
-            <input type="text" class="gap-input" name="p6_${n}" autocomplete="off" spellcheck="false" placeholder="One word..." oninput="updateReadingProgress()">
-          </div>
-          <div class="q-feedback" id="fb_p6_${n}"></div>
-        </div>
-      `).join('');
-
-      // Writing Part 1 (Questions 1–5)
-      const w1Box = document.getElementById('writingPart1Box');
-      w1Box.innerHTML = [1, 2, 3, 4, 5].map(n => `
-        <div class="q-row" id="row_w1_${n}">
-          <div class="q-row-top">
-            <span class="q-num">Question ${n}</span>
-            <input type="text" class="gap-input" style="width: 190px;" name="w1_${n}" autocomplete="off" placeholder="1–3 words...">
-          </div>
-          <div class="q-feedback" id="fb_w1_${n}"></div>
-        </div>
-      `).join('');
-    }
-
-    // =========================================================================
-    // NAVIGATION & TEST SWITCHERS
-    // =========================================================================
-    function switchPaper(paper) {
-      currentPaper = paper;
-      document.getElementById('tabReading').classList.toggle('active', paper === 'reading');
-      document.getElementById('tabWriting').classList.toggle('active', paper === 'writing');
-      document.getElementById('paneReading').classList.toggle('active', paper === 'reading');
-      document.getElementById('paneWriting').classList.toggle('active', paper === 'writing');
-      document.getElementById('timerPaperLabel').textContent = paper === 'reading' ? 'READING' : 'WRITING';
-      document.getElementById('readingProgressPill').style.display = paper === 'reading' ? 'inline-block' : 'none';
+      renderActiveExamDOM(exam);
+      updateProgressDisplay();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function switchReadingPart(partNum) {
-      for (let i = 1; i <= 6; i++) {
-        document.getElementById('readingPart' + i).classList.toggle('active', i === partNum);
+    function buildQuestionInputHtml(q, qType) {
+      if (qType === 'mc2') {
+        return `
+          <div class="choice-pills">
+            ${[{v:'A', l:'A (YES)'}, {v:'B', l:'B (NO)'}].map(opt => `
+              <label class="choice-label">
+                <input type="radio" name="${q.id}" value="${opt.v}" onchange="updateProgressDisplay()"> ${opt.l}
+              </label>
+            `).join('')}
+          </div>
+        `;
       }
-      document.querySelectorAll('#readingPartsNav .part-pill').forEach(btn => {
-        btn.classList.toggle('active', parseInt(btn.getAttribute('data-part'), 10) === partNum);
+      if (qType === 'mc3') {
+        return `
+          <div class="choice-pills">
+            ${['A', 'B', 'C'].map(opt => `
+              <label class="choice-label">
+                <input type="radio" name="${q.id}" value="${opt}" onchange="updateProgressDisplay()"> ${opt}
+              </label>
+            `).join('')}
+          </div>
+        `;
+      }
+      if (qType === 'mc4') {
+        return `
+          <div class="choice-pills">
+            ${['A', 'B', 'C', 'D'].map(opt => `
+              <label class="choice-label">
+                <input type="radio" name="${q.id}" value="${opt}" onchange="updateProgressDisplay()"> ${opt}
+              </label>
+            `).join('')}
+          </div>
+        `;
+      }
+      if (qType === 'matchAH') {
+        return `
+          <select class="choice-select" name="${q.id}" onchange="updateProgressDisplay()">
+            <option value="">Select (A–H)</option>
+            ${['A','B','C','D','E','F','G','H'].map(l => `<option value="${l}">Option ${l}</option>`).join('')}
+          </select>
+        `;
+      }
+      return `
+        <input type="text" class="gap-input" name="${q.id}" autocomplete="off" spellcheck="false" placeholder="Write answer..." oninput="updateProgressDisplay()">
+      `;
+    }
+
+    function renderActiveExamDOM(exam) {
+      const root = document.getElementById('examContentRoot');
+
+      // 1. READING OR LISTENING EXAM
+      if (exam.skill === 'reading' || exam.skill === 'listening') {
+        let audioBarHtml = '';
+        if (exam.skill === 'listening') {
+          audioBarHtml = `
+            <div class="listening-audio-bar">
+              <div>
+                <div style="font-weight: 700; font-size: 0.96rem;">🎧 Official Listening Audio Player (${exam.title})</div>
+                <div style="font-size: 0.8rem; color: #cbd5e1; margin-top: 2px;">
+                  Load your local MP3/WAV recording below or play the assigned track. In the real exam, each recording is heard twice.
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <audio id="listeningAudioPlayer" controls src="${exam.defaultAudioSrc}" style="height: 36px;"></audio>
+                <label class="bar-btn" style="cursor: pointer; background: rgba(34,197,94,0.25); border-color: #4ade80;">
+                  📂 Load Audio MP3/WAV
+                  <input type="file" accept="audio/*" style="display: none;" onchange="loadCustomListeningAudio(this)">
+                </label>
+              </div>
+            </div>
+          `;
+        }
+
+        const navHtml = `
+          <nav class="parts-nav" id="activePartsNav">
+            ${exam.parts.map(p => `
+              <button type="button" class="part-pill ${p.num === 1 ? 'active' : ''}" data-part-num="${p.num}" onclick="switchPart(${p.num})">
+                ${p.label}
+              </button>
+            `).join('')}
+          </nav>
+        `;
+
+        const partsHtml = exam.parts.map((p, idx) => {
+          const leftContent = p.images
+            ? p.images.map(im => `
+                <div class="scan-frame">
+                  <div class="scan-caption"><span>${im.cap}</span><span>Click image to zoom</span></div>
+                  <img src="${im.src}" alt="${im.cap}" onclick="openZoom(this.src)">
+                </div>
+              `).join('')
+            : p.passageHtml;
+
+          const questionsHtml = p.questions.map(q => `
+            <div class="q-row" id="row_${q.id}">
+              <div class="q-row-top">
+                <span class="q-num">${q.label}</span>
+                ${buildQuestionInputHtml(q, p.qType)}
+              </div>
+              <div class="q-feedback" id="fb_${q.id}"></div>
+            </div>
+          `).join('');
+
+          const prevBtn = idx > 0
+            ? `<button type="button" class="btn btn-outline" onclick="switchPart(${exam.parts[idx - 1].num})">← Previous Part</button>`
+            : `<span></span>`;
+
+          const nextBtn = idx < exam.parts.length - 1
+            ? `<button type="button" class="btn btn-primary" onclick="switchPart(${exam.parts[idx + 1].num})">Next: ${exam.parts[idx + 1].label} →</button>`
+            : `<button type="button" class="btn btn-green" onclick="gradeCurrentExam()">✓ Submit &amp; Grade ${exam.title}</button>`;
+
+          return `
+            <section class="part-card" id="partCard_${p.num}" style="display: ${p.num === 1 ? 'block' : 'none'};">
+              <div class="part-header">
+                <div>
+                  <span class="part-tag ${p.isSupplement ? 'supplement' : ''}">${p.tag}</span>
+                  <h2>${p.heading}</h2>
+                </div>
+                <button type="button" class="btn btn-green" onclick="gradeCurrentExam()">✓ Submit &amp; Check All Parts</button>
+              </div>
+              <div class="part-instructions"><strong>Instructions:</strong> ${p.instructions}</div>
+              <div class="split-exam-grid">
+                <div class="exam-sheets-col">${leftContent}</div>
+                <div class="answer-sheet-col">
+                  <div class="answer-sheet-title">
+                    <span>Answer Sheet — Part ${p.num}</span>
+                    <span>${p.questions.length} Questions</span>
+                  </div>
+                  ${questionsHtml}
+                </div>
+              </div>
+              <div class="part-footer-nav">${prevBtn}${nextBtn}</div>
+            </section>
+          `;
+        }).join('');
+
+        root.innerHTML = audioBarHtml + navHtml + partsHtml;
+        return;
+      }
+
+      // 2. WRITING EXAM (3 Parts)
+      if (exam.skill === 'writing') {
+        const p1Left = exam.part1Img
+          ? `<div class="scan-frame"><div class="scan-caption"><span>${exam.part1Cap}</span><span>Click image to zoom</span></div><img src="${exam.part1Img}" alt="${exam.part1Cap}" onclick="openZoom(this.src)"></div>`
+          : exam.part1Html;
+
+        const p2Left = exam.part2Img
+          ? `<div class="scan-frame"><div class="scan-caption"><span>${exam.part2Cap}</span><span>Click image to zoom</span></div><img src="${exam.part2Img}" alt="${exam.part2Cap}" onclick="openZoom(this.src)"></div>`
+          : exam.part2Html;
+
+        const p3Left = exam.part3Img
+          ? `<div class="scan-frame"><div class="scan-caption"><span>${exam.part3Cap}</span><span>Click image to zoom</span></div><img src="${exam.part3Img}" alt="${exam.part3Cap}" onclick="openZoom(this.src)"></div>`
+          : exam.part3Html;
+
+        root.innerHTML = `
+          <!-- WRITING PART 1 -->
+          <section class="part-card">
+            <div class="part-header">
+              <div>
+                <span class="part-tag">${exam.title} • Part 1 • Questions 1–5</span>
+                <h2>Part 1: Sentence Transformations (No More Than 3 Words)</h2>
+              </div>
+            </div>
+            <div class="part-instructions">
+              <strong>Instructions:</strong> Complete the second sentence so that it means the same as the first. Use <strong>no more than three words</strong>.
+            </div>
+            <div class="split-exam-grid">
+              <div class="exam-sheets-col">${p1Left}</div>
+              <div class="answer-sheet-col">
+                <div class="answer-sheet-title"><span>Answer Sheet — Part 1</span><span>Max 3 words</span></div>
+                ${exam.part1Questions.map(q => `
+                  <div class="q-row" id="row_${q.id}">
+                    <div class="q-row-top">
+                      <span class="q-num">${q.label}</span>
+                      <input type="text" class="gap-input" style="width: 195px;" name="${q.id}" autocomplete="off" placeholder="1–3 words...">
+                    </div>
+                    <div class="q-feedback" id="fb_${q.id}"></div>
+                  </div>
+                `).join('')}
+                <button type="button" class="btn btn-primary" style="width: 100%; margin-top: 8px;" onclick="gradeWritingPart1()">
+                  ✓ Check Part 1 Answers
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- WRITING PART 2 -->
+          <section class="part-card">
+            <div class="part-header">
+              <div>
+                <span class="part-tag">${exam.title} • Part 2 • Question 6</span>
+                <h2>Part 2: Short Communicative Message (35–45 Words)</h2>
+              </div>
+            </div>
+            <div class="split-exam-grid">
+              <div class="exam-sheets-col">${p2Left}</div>
+              <div class="answer-sheet-col" style="position: static;">
+                <div class="answer-sheet-title">
+                  <span>Your Response — Question 6</span>
+                  <span class="word-counter" id="wPart2Counter">0 words (Target: 35–45)</span>
+                </div>
+                <textarea id="wPart2Text" class="writing-textarea" placeholder="Write your 35–45 word message in English here..." oninput="updateWordCounter('wPart2Text', 'wPart2Counter', 35, 45)"></textarea>
+                <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+                  <button type="button" class="btn btn-green" onclick="sendWritingToWhatsApp('${exam.title} — Part 2 (Question 6)', 'wPart2Text')">
+                    📲 Send Part 2 to Teacher on WhatsApp (+593996375490)
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- WRITING PART 3 -->
+          <section class="part-card">
+            <div class="part-header">
+              <div>
+                <span class="part-tag">${exam.title} • Part 3 • Question 7 or 8</span>
+                <h2>Part 3: Extended Writing — Letter or Story (~100 Words)</h2>
+              </div>
+            </div>
+            <div class="split-exam-grid">
+              <div class="exam-sheets-col">${p3Left}</div>
+              <div class="answer-sheet-col" style="position: static;">
+                <div class="answer-sheet-title">
+                  <span>Your Response — Part 3</span>
+                  <span class="word-counter" id="wPart3Counter">0 words (Target: ~100)</span>
+                </div>
+                <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; font-size: 0.85rem; font-weight: 600;">
+                  ${exam.part3Options.map((opt, idx) => `
+                    <label style="cursor: pointer;">
+                      <input type="radio" name="wPart3Choice" value="${opt}" ${idx === 0 ? 'checked' : ''}> ${opt}
+                    </label>
+                  `).join('')}
+                </div>
+                <textarea id="wPart3Text" class="writing-textarea" style="min-height: 220px;" placeholder="Write your letter or story in English here (about 100 words)..." oninput="updateWordCounter('wPart3Text', 'wPart3Counter', 85, 115)"></textarea>
+                <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+                  <button type="button" class="btn btn-green" onclick="sendWritingPart3ToWhatsApp('${exam.title}')">
+                    📲 Send Part 3 to Teacher on WhatsApp (+593996375490)
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        `;
+        return;
+      }
+
+      // 3. SPEAKING EXAM (With Visual Material 1A/2A & Colour Photos 1B/1C/2B/2C)
+      if (exam.skill === 'speaking') {
+        const navHtml = `
+          <nav class="parts-nav" id="activePartsNav">
+            ${exam.parts.map(p => `
+              <button type="button" class="part-pill ${p.num === 1 ? 'active' : ''}" data-part-num="${p.num}" onclick="switchPart(${p.num})">
+                ${p.label}
+              </button>
+            `).join('')}
+          </nav>
+        `;
+
+        const partsHtml = exam.parts.map((p, idx) => {
+          const stopwatchHtml = p.hasStopwatch ? `
+            <div class="speaking-stopwatch-box">
+              <div>
+                <strong style="color: var(--cambridge-navy); font-size: 0.92rem;">⏱️ 1-Minute Photograph Description Timer (Part 3)</strong>
+                <div style="font-size: 0.8rem; color: var(--muted);">In the official exam, each candidate describes their colour photograph for 1 minute.</div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span id="photoStopwatchDisplay" style="font-family: var(--font-mono); font-size: 1.35rem; font-weight: 700; color: var(--cambridge-navy);">01:00</span>
+                <button type="button" class="btn btn-primary" onclick="startPhotoStopwatch()">Start 1:00</button>
+                <button type="button" class="btn btn-outline" onclick="resetPhotoStopwatch()">Reset</button>
+              </div>
+            </div>
+          ` : '';
+
+          const leftCol = p.leftImages.map(im => `
+            <div class="scan-frame">
+              <div class="scan-caption"><span>${im.cap}</span><span>Click image to zoom</span></div>
+              <img src="${im.src}" alt="${im.cap}" onclick="openZoom(this.src)">
+            </div>
+          `).join('');
+
+          const rightCol = p.rightImages.map(im => `
+            <div class="scan-frame">
+              <div class="scan-caption"><span>${im.cap}</span><span>Click image to zoom</span></div>
+              <img src="${im.src}" alt="${im.cap}" onclick="openZoom(this.src)">
+            </div>
+          `).join('');
+
+          const prevBtn = idx > 0
+            ? `<button type="button" class="btn btn-outline" onclick="switchPart(${exam.parts[idx - 1].num})">← Previous Part</button>`
+            : `<span></span>`;
+
+          const nextBtn = idx < exam.parts.length - 1
+            ? `<button type="button" class="btn btn-primary" onclick="switchPart(${exam.parts[idx + 1].num})">Next: ${exam.parts[idx + 1].label} →</button>`
+            : `<span></span>`;
+
+          return `
+            <section class="part-card" id="partCard_${p.num}" style="display: ${p.num === 1 ? 'block' : 'none'};">
+              <div class="part-header">
+                <div>
+                  <span class="part-tag">${p.tag}</span>
+                  <h2>${p.heading}</h2>
+                </div>
+              </div>
+              <div class="part-instructions"><strong>Instructions:</strong> ${p.instructions}</div>
+              ${stopwatchHtml}
+              <div class="split-exam-grid">
+                <div class="exam-sheets-col">${leftCol}</div>
+                <div class="exam-sheets-col">${rightCol}</div>
+              </div>
+              <div class="part-footer-nav">${prevBtn}${nextBtn}</div>
+            </section>
+          `;
+        }).join('');
+
+        root.innerHTML = navHtml + partsHtml;
+      }
+    }
+
+    function switchPart(partNum) {
+      activePartIndex = partNum;
+      const exam = EXAMS[activeExamId];
+      if (!exam || !exam.parts) return;
+      exam.parts.forEach(p => {
+        const el = document.getElementById(`partCard_${p.num}`);
+        if (el) el.style.display = p.num === partNum ? 'block' : 'none';
+      });
+      document.querySelectorAll('#activePartsNav .part-pill').forEach(btn => {
+        btn.classList.toggle('active', parseInt(btn.getAttribute('data-part-num'), 10) === partNum);
       });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function switchPart1Test(testKey) {
-      currentPart1Test = testKey;
-      const isT1 = testKey === 't1';
-      document.getElementById('btnP1Test1').classList.toggle('active', isT1);
-      document.getElementById('btnP1Test2').classList.toggle('active', !isT1);
-      document.getElementById('p1ActiveTestLabel').textContent = isT1 ? 'Test 1' : 'Test 2';
-      document.getElementById('p1Img1').src = isT1 ? 'assets/exam-pages/t1_part1_p1.jpg' : 'assets/exam-pages/t2_part1_p1.jpg';
-      document.getElementById('p1Img2').src = isT1 ? 'assets/exam-pages/t1_part1_p2.jpg' : 'assets/exam-pages/t2_part1_p2.jpg';
-      document.getElementById('p1Img1Caption').textContent = isT1 ? 'Test 1 — Reading Part 1 (Questions 1–2)' : 'Test 2 — Reading Part 1 (Questions 1–2)';
-      document.getElementById('p1Img2Caption').textContent = isT1 ? 'Test 1 — Reading Part 1 (Questions 3–5)' : 'Test 2 — Reading Part 1 (Questions 3–5)';
-
-      // Reset Part 1 answers & visual state when switching Test 1 <-> Test 2
-      for (let n = 1; n <= 5; n++) {
-        document.querySelectorAll(`input[name="p1_${n}"]`).forEach(r => r.checked = false);
-        const row = document.getElementById(`row_p1_${n}`);
-        if (row) row.classList.remove('correct', 'incorrect');
+    function loadCustomListeningAudio(input) {
+      if (!input.files || !input.files[0]) return;
+      const file = input.files[0];
+      const url = URL.createObjectURL(file);
+      const player = document.getElementById('listeningAudioPlayer');
+      if (player) {
+        player.src = url;
+        player.play().catch(() => {});
+        showToast(`Loaded audio track: ${file.name}`);
       }
-      updateReadingProgress();
-      showToast(isT1 ? 'Switched Part 1 to Cambridge Test 1' : 'Switched Part 1 to Cambridge Test 2');
     }
 
     // =========================================================================
-    // PROGRESS & AUTO-GRADING (ALL 6 READING PARTS = 36 ITEMS)
+    // PROGRESS & AUTO-GRADING
     // =========================================================================
     function getAnswerValue(name) {
       const radio = document.querySelector(`input[name="${name}"]:checked`);
@@ -1446,109 +1955,108 @@
       return '';
     }
 
-    function updateReadingProgress() {
-      const allKeys = [
-        ...Object.keys(KEYS.part1_t1),
-        ...Object.keys(KEYS.part2),
-        ...Object.keys(KEYS.part3),
-        ...Object.keys(KEYS.part4),
-        ...Object.keys(KEYS.part5),
-        ...Object.keys(KEYS.part6)
-      ];
-      let answered = 0;
-      allKeys.forEach(k => { if (getAnswerValue(k) !== '') answered++; });
-      document.getElementById('readingProgressPill').textContent = `Answered: ${answered} / ${allKeys.length}`;
-    }
+    function updateProgressDisplay() {
+      const exam = EXAMS[activeExamId];
+      const pill = document.getElementById('activeProgressPill');
+      if (!exam || !pill) return;
 
-    function gradeGroup(keyMap, isArrayAcceptable = false, wordLabels = null) {
-      let score = 0;
-      const total = Object.keys(keyMap).length;
-      Object.keys(keyMap).forEach(q => {
-        const val = getAnswerValue(q);
-        const row = document.getElementById(`row_${q}`);
-        const fb = document.getElementById(`fb_${q}`);
-        let isCorrect = false;
-        let expectedDisplay = '';
-
-        if (isArrayAcceptable) {
-          const accepted = keyMap[q];
-          const normalized = val.toLowerCase().replace(/\s+/g, ' ').trim();
-          isCorrect = accepted.map(a => a.toLowerCase()).includes(normalized);
-          expectedDisplay = accepted.join(' / ');
-        } else {
-          isCorrect = val.toUpperCase() === keyMap[q];
-          expectedDisplay = wordLabels && wordLabels[q] ? `${keyMap[q]} (${wordLabels[q]})` : keyMap[q];
-        }
-
-        if (row) {
-          row.classList.remove('correct', 'incorrect');
-          row.classList.add(isCorrect ? 'correct' : 'incorrect');
-        }
-        if (fb) {
-          fb.textContent = isCorrect
-            ? `✓ Correct (${expectedDisplay})`
-            : `✕ Incorrect — Official Answer: ${expectedDisplay}`;
-        }
-        if (isCorrect) score++;
-      });
-      return { score, total };
-    }
-
-    function gradeReadingPaper() {
-      const p1Key = currentPart1Test === 't1' ? KEYS.part1_t1 : KEYS.part1_t2;
-      const r1 = gradeGroup(p1Key, false);
-      const r2 = gradeGroup(KEYS.part2, false);
-      const r3 = gradeGroup(KEYS.part3, false);
-      const r4 = gradeGroup(KEYS.part4, false);
-      const r5 = gradeGroup(KEYS.part5, false, PART5_WORD_LABELS);
-      const r6 = gradeGroup(KEYS.part6, true);
-
-      const totalScore = r1.score + r2.score + r3.score + r4.score + r5.score + r6.score;
-      const totalItems = r1.total + r2.total + r3.total + r4.total + r5.total + r6.total;
-      const pct = Math.round((totalScore / totalItems) * 100);
-
-      let bandMsg = '';
-      if (pct >= 90) {
-        bandMsg = 'Outstanding! Grade A (Pass with Distinction — Level B2 Performance).';
-      } else if (pct >= 80) {
-        bandMsg = 'Excellent work! Grade B (Pass with Merit — Strong B1 Performance).';
-      } else if (pct >= 70) {
-        bandMsg = 'Well done! Grade C (Pass — Solid B1 Preliminary Level).';
-      } else if (pct >= 50) {
-        bandMsg = 'Good effort! Review the highlighted official answers in each part to push above 70%.';
+      if (exam.skill === 'reading' || exam.skill === 'listening') {
+        let total = 0;
+        let answered = 0;
+        exam.parts.forEach(p => {
+          p.questions.forEach(q => {
+            total++;
+            if (getAnswerValue(q.id) !== '') answered++;
+          });
+        });
+        pill.textContent = `${exam.title.split(' —')[0]} • Answered: ${answered} / ${total}`;
+      } else if (exam.skill === 'writing') {
+        pill.textContent = `${exam.title.split(' —')[0]} • 3 Parts`;
       } else {
-        bandMsg = 'Keep practising! Check the official answers across Parts 1–6 and try again.';
+        pill.textContent = `${exam.title.split(' —')[0]} • Visuals & Photos`;
+      }
+    }
+
+    function checkSingleQuestion(q) {
+      const val = getAnswerValue(q.id);
+      const row = document.getElementById(`row_${q.id}`);
+      const fb = document.getElementById(`fb_${q.id}`);
+      let isCorrect = false;
+      let expectedDisplay = '';
+
+      if (Array.isArray(q.ans)) {
+        const norm = val.toLowerCase().replace(/\s+/g, ' ').trim();
+        isCorrect = q.ans.map(a => a.toLowerCase()).includes(norm);
+        expectedDisplay = q.ans.join(' / ');
+      } else {
+        isCorrect = val.toUpperCase() === String(q.ans).toUpperCase();
+        expectedDisplay = q.note ? `${q.ans} (${q.note})` : q.ans;
       }
 
-      document.getElementById('readingScoreBig').textContent = `${totalScore} / ${totalItems}`;
-      document.getElementById('readingPercentText').textContent = `${pct}% Accuracy`;
-      document.getElementById('readingBandFeedback').textContent = bandMsg;
+      if (row) {
+        row.classList.remove('correct', 'incorrect');
+        row.classList.add(isCorrect ? 'correct' : 'incorrect');
+      }
+      if (fb) {
+        fb.textContent = isCorrect
+          ? `✓ Correct (${expectedDisplay})`
+          : `✕ Incorrect — Official Answer: ${expectedDisplay}`;
+      }
+      return isCorrect;
+    }
 
-      const breakdown = [
-        { label: `Part 1 (${currentPart1Test.toUpperCase()})`, res: r1 },
-        { label: 'Part 2 (Matching)', res: r2 },
-        { label: 'Part 3 (Multiple Choice)', res: r3 },
-        { label: 'Part 4 (Gapped Text)', res: r4 },
-        { label: 'Part 5 (MC Cloze)', res: r5 },
-        { label: 'Part 6 (Open Cloze)', res: r6 }
-      ];
+    function gradeCurrentExam() {
+      const exam = EXAMS[activeExamId];
+      if (!exam || !exam.parts) return;
 
-      document.getElementById('readingBreakdownGrid').innerHTML = breakdown.map(b => `
+      let totalScore = 0;
+      let totalItems = 0;
+      const breakdown = [];
+
+      exam.parts.forEach(p => {
+        let pScore = 0;
+        p.questions.forEach(q => {
+          if (checkSingleQuestion(q)) pScore++;
+        });
+        totalScore += pScore;
+        totalItems += p.questions.length;
+        breakdown.push({ label: p.label.split(':')[0], score: pScore, total: p.questions.length });
+      });
+
+      const pct = Math.round((totalScore / totalItems) * 100);
+      let bandMsg = '';
+      if (pct >= 90) bandMsg = 'Outstanding! Grade A (Pass with Distinction — Level B2 Performance).';
+      else if (pct >= 80) bandMsg = 'Excellent work! Grade B (Pass with Merit — Strong B1 Performance).';
+      else if (pct >= 70) bandMsg = 'Well done! Grade C (Pass — Solid B1 Preliminary Level).';
+      else bandMsg = 'Review the highlighted official answers in each part and keep practising!';
+
+      document.getElementById('scoreTagLabel').textContent = `${exam.title} — Official Result`;
+      document.getElementById('scoreHeadingText').textContent = `Your ${exam.title.split(' —')[0]} Score`;
+      document.getElementById('scoreBigText').textContent = `${totalScore} / ${totalItems}`;
+      document.getElementById('scorePercentText').textContent = `${pct}% Accuracy`;
+      document.getElementById('scoreBandFeedback').textContent = bandMsg;
+
+      document.getElementById('scoreBreakdownGrid').innerHTML = breakdown.map(b => `
         <div class="part-score-chip">
           <div class="lbl">${b.label}</div>
-          <div class="val">${b.res.score} / ${b.res.total}</div>
+          <div class="val">${b.score} / ${b.total}</div>
         </div>
       `).join('');
 
-      const card = document.getElementById('readingScoreCard');
+      const card = document.getElementById('scoreSummaryCard');
       card.classList.add('visible');
       card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      showToast(`Reading graded: ${totalScore}/${totalItems} (${pct}%)`);
+      showToast(`Graded ${exam.title.split(' —')[0]}: ${totalScore}/${totalItems} (${pct}%)`);
     }
 
     function gradeWritingPart1() {
-      const res = gradeGroup(KEYS.writing1, true);
-      showToast(`Writing Part 1 checked: ${res.score} / ${res.total} correct`);
+      const exam = EXAMS[activeExamId];
+      if (!exam || !exam.part1Questions) return;
+      let score = 0;
+      exam.part1Questions.forEach(q => {
+        if (checkSingleQuestion(q)) score++;
+      });
+      showToast(`Writing Part 1 Checked: ${score} / ${exam.part1Questions.length} correct`);
     }
 
     // =========================================================================
@@ -1594,13 +2102,13 @@
       showToast('Opening WhatsApp to send your Writing submission...');
     }
 
-    function sendWritingPart3ToWhatsApp() {
-      const choice = document.querySelector('input[name="wPart3Choice"]:checked')?.value || 'Question 7';
-      sendWritingToWhatsApp(`Writing Part 3 — ${choice}`, 'wPart3Text');
+    function sendWritingPart3ToWhatsApp(examTitle) {
+      const choice = document.querySelector('input[name="wPart3Choice"]:checked')?.value || 'Part 3';
+      sendWritingToWhatsApp(`${examTitle} — ${choice}`, 'wPart3Text');
     }
 
     // =========================================================================
-    // TIMER, FULLSCREEN, ZOOM & TOAST
+    // TIMERS, SPEAKING STOPWATCH, FULLSCREEN & ZOOM
     // =========================================================================
     function renderClock() {
       const mins = Math.floor(secondsRemaining / 60);
@@ -1608,22 +2116,17 @@
       const clock = document.getElementById('examTimerClock');
       clock.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
       clock.classList.remove('warning', 'danger');
-      if (secondsRemaining <= 300) clock.classList.add('danger');
-      else if (secondsRemaining <= 600) clock.classList.add('warning');
+      if (secondsRemaining <= 180) clock.classList.add('danger');
+      else if (secondsRemaining <= 360) clock.classList.add('warning');
     }
 
     function startTimer() {
       if (timerInterval) clearInterval(timerInterval);
       renderClock();
       timerInterval = setInterval(() => {
-        if (!timerPaused) {
-          if (secondsRemaining > 0) {
-            secondsRemaining--;
-            renderClock();
-          } else {
-            clearInterval(timerInterval);
-            alert('Time is up! 45 minutes have elapsed. Please submit your answers.');
-          }
+        if (!timerPaused && secondsRemaining > 0) {
+          secondsRemaining--;
+          renderClock();
         }
       }, 1000);
     }
@@ -1634,11 +2137,37 @@
     }
 
     function resetTimer() {
-      secondsRemaining = 45 * 60;
+      secondsRemaining = activeDefaultSeconds;
       timerPaused = false;
       document.getElementById('btnToggleTimer').textContent = 'Pause';
       startTimer();
-      showToast('Timer reset to 45:00');
+      showToast('Timer reset');
+    }
+
+    function startPhotoStopwatch() {
+      if (photoInterval) clearInterval(photoInterval);
+      photoSeconds = 60;
+      const disp = document.getElementById('photoStopwatchDisplay');
+      if (disp) disp.textContent = '01:00';
+      photoInterval = setInterval(() => {
+        photoSeconds--;
+        const d = document.getElementById('photoStopwatchDisplay');
+        if (!d) { clearInterval(photoInterval); return; }
+        if (photoSeconds <= 0) {
+          clearInterval(photoInterval);
+          d.textContent = '00:00';
+          showToast('⏱️ 1 Minute Completed!');
+        } else {
+          d.textContent = `00:${String(photoSeconds).padStart(2, '0')}`;
+        }
+      }, 1000);
+    }
+
+    function resetPhotoStopwatch() {
+      if (photoInterval) clearInterval(photoInterval);
+      photoSeconds = 60;
+      const d = document.getElementById('photoStopwatchDisplay');
+      if (d) d.textContent = '01:00';
     }
 
     function toggleFullscreen() {
@@ -1670,10 +2199,12 @@
       window._toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
     }
 
-    // INIT
-    buildAnswerSheets();
-    updateReadingProgress();
-    startTimer();
+    // INIT FROM URL QUERY (?exam=reading-1 | reading-2 | writing-1 | writing-2 | writing-3 | listening-1 | listening-2 | speaking-1 | speaking-2)
+    (function init() {
+      const params = new URLSearchParams(window.location.search);
+      const requested = params.get('exam') || 'reading-1';
+      loadExam(EXAMS[requested] ? requested : 'reading-1', false);
+    })();
   </script>
 </body>
 </html>

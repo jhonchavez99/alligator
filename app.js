@@ -892,9 +892,149 @@ function closePetTopicsModal() {
   if (modal) modal.classList.remove('open');
 }
 
-function openSimulatorConfirmModal() {
+let selectedSimExamId = 'reading-1';
+
+const simExamCatalog = {
+  'reading-1': {
+    label: 'Reading 1 (Cambridge Test 1)',
+    duration: '45 minutos',
+    skill: 'Reading Paper — 6 Partes (36 preguntas)',
+    items: [
+      '<strong>Part 1 (Q1–5):</strong> Signs and short texts (3-option multiple choice)',
+      '<strong>Part 2 (Q6–10):</strong> Match 5 people to 8 texts (Short Art Courses)',
+      '<strong>Part 3 (Q21–25):</strong> Long text &amp; multiple-choice questions (One to watch!)',
+      '<strong>Part 4 (Q16–20):</strong> Gapped text — choose the correct sentence (A–H)',
+      '<strong>Part 5 (Q26–35):</strong> Multiple-choice cloze (New Home – New School)',
+      '<strong>Part 6 (Gaps 1–6):</strong> Open cloze — write one word in each gap'
+    ]
+  },
+  'reading-2': {
+    label: 'Reading 2 (Cambridge Test 2)',
+    duration: '45 minutos',
+    skill: 'Reading Paper — 6 Partes (36 preguntas)',
+    items: [
+      '<strong>Part 1 (Q1–5):</strong> Signs and short texts (3-option multiple choice)',
+      '<strong>Part 2 (Q6–10):</strong> Match 5 people to 8 texts (Swimming Clubs)',
+      '<strong>Part 3 (Q21–25):</strong> Long text &amp; multiple-choice questions (Cycling in the countryside)',
+      '<strong>Part 4 (Q16–20):</strong> Gapped text — choose the correct sentence (A–H)',
+      '<strong>Part 5 (Q26–35):</strong> Multiple-choice cloze (Making honey)',
+      '<strong>Part 6 (Gaps 1–6):</strong> Open cloze — write one word in each gap'
+    ]
+  },
+  'writing-1': {
+    label: 'Writing 1 (Cambridge Test 1)',
+    duration: '45 minutos',
+    skill: 'Writing Paper — 3 Partes Independientes',
+    items: [
+      '<strong>Part 1 (Q1–5):</strong> Sentence transformations about the game Jotto (auto-calificable, máx. 3 palabras)',
+      '<strong>Part 2 (Q6):</strong> Short email to Emma about birthday money and a music CD (35–45 palabras)',
+      '<strong>Part 3 (Q7 o Q8):</strong> Letter about eating out vs home OR Story "How I met my best friend" (~100 palabras, envío a WhatsApp)'
+    ]
+  },
+  'writing-2': {
+    label: 'Writing 2 (Cambridge Test 2)',
+    duration: '45 minutos',
+    skill: 'Writing Paper — 3 Partes Independientes',
+    items: [
+      '<strong>Part 1 (Q1–5):</strong> Sentence transformations about going camping (auto-calificable, máx. 3 palabras)',
+      '<strong>Part 2 (Q6):</strong> Short email to Alex about Saturday’s party (35–45 palabras)',
+      '<strong>Part 3 (Q7 o Q8):</strong> Letter about school subjects OR Story "I was really excited when I opened the letter" (~100 palabras, envío a WhatsApp)'
+    ]
+  },
+  'writing-3': {
+    label: 'Writing 3 (Oxford Practice Test)',
+    duration: '45 minutos',
+    skill: 'Writing Paper — 3 Partes Independientes',
+    items: [
+      '<strong>Part 1 (Q1–5):</strong> Sentence transformations about music (auto-calificable, máx. 3 palabras)',
+      '<strong>Part 2 (Q6):</strong> Short card to Josh about the weekend (35–45 palabras)',
+      '<strong>Part 3 (Q7 o Q8):</strong> Letter about activities you enjoy OR Story "I woke up in the middle of the night" (~100 palabras, envío a WhatsApp)'
+    ]
+  },
+  'listening-1': {
+    label: 'Listening 1 (Cambridge Test 1)',
+    duration: '35 minutos',
+    skill: 'Listening Paper — 4 Partes (25 preguntas)',
+    items: [
+      '<strong>Part 1 (Q1–7):</strong> Seven short recordings with 3-option picture multiple choice',
+      '<strong>Part 2 (Q8–13):</strong> Interview with singer Nick Parker (3-option multiple choice)',
+      '<strong>Part 3 (Q14–19):</strong> Gap-fill notes: Saturday course',
+      '<strong>Part 4 (Q20–25):</strong> True / False (YES / NO) conversation: Thomas &amp; Ruby sports day poster',
+      '<em>Incluye reproductor y cargador de archivo de audio MP3.</em>'
+    ]
+  },
+  'listening-2': {
+    label: 'Listening 2 (Cambridge Test 2)',
+    duration: '35 minutos',
+    skill: 'Listening Paper — 4 Partes (25 preguntas)',
+    items: [
+      '<strong>Part 1 (Q1–7):</strong> Seven short recordings with 3-option picture multiple choice',
+      '<strong>Part 2 (Q8–13):</strong> Six 3-option multiple choice questions',
+      '<strong>Part 3 (Q14–19):</strong> Gap-fill notes: Griffon the Horse',
+      '<strong>Part 4 (Q20–25):</strong> True / False (YES / NO) conversation: Jamie &amp; Miranda sharing a bedroom',
+      '<em>Incluye reproductor y cargador de archivo de audio MP3.</em>'
+    ]
+  },
+  'speaking-1': {
+    label: 'Speaking 1 (Cambridge Test 1)',
+    duration: '12 minutos',
+    skill: 'Speaking Paper — 4 Partes con Imágenes y Fotografías Oficiales',
+    items: [
+      '<strong>Part 1 (2–3 min):</strong> Personal questions &amp; spelling surname',
+      '<strong>Part 2 (2–3 min):</strong> Visual Diagram <strong>1A</strong> — Goodbye present for a tennis club friend',
+      '<strong>Part 3 (3 min):</strong> Colour Photographs <strong>1B &amp; 1C</strong> — People enjoying music (1 minuto por foto)',
+      '<strong>Part 4 (3 min):</strong> General discussion about music preferences'
+    ]
+  },
+  'speaking-2': {
+    label: 'Speaking 2 (Cambridge Test 2)',
+    duration: '12 minutos',
+    skill: 'Speaking Paper — 4 Partes con Imágenes y Fotografías Oficiales',
+    items: [
+      '<strong>Part 1 (2–3 min):</strong> Personal questions &amp; daily routine',
+      '<strong>Part 2 (2–3 min):</strong> Visual Diagram <strong>2A</strong> — Two-week trip to England',
+      '<strong>Part 3 (3 min):</strong> Colour Photographs <strong>2B &amp; 2C</strong> — People having a snack (1 minuto por foto)',
+      '<strong>Part 4 (3 min):</strong> General discussion about favourite snacks and where to eat them'
+    ]
+  }
+};
+
+function selectSimExamInModal(examId) {
+  selectedSimExamId = simExamCatalog[examId] ? examId : 'reading-1';
+  const info = simExamCatalog[selectedSimExamId];
+
+  document.querySelectorAll('[data-sim-exam]').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-sim-exam') === selectedSimExamId);
+  });
+
+  const box = document.getElementById('simModalNoticeBox');
+  if (box && info) {
+    box.innerHTML = `
+      <div style="font-weight: 700; font-size: 0.96rem; margin-bottom: 6px; color: #1e3a8a;">
+        📌 Prueba Seleccionada: ${info.label}
+      </div>
+      <div style="margin-bottom: 8px;">
+        ⏱️ <strong>Duración oficial:</strong> ${info.duration} &bull; 🌐 <strong>Idioma:</strong> 100% en inglés &bull; 🖥️ <strong>Modalidad:</strong> Pestaña nueva a página completa
+      </div>
+      <div style="font-weight: 700; margin-bottom: 4px;">📋 Qué vas a dar en esta prueba (${info.skill}):</div>
+      <ul style="margin: 0 0 0 18px; padding: 0;">
+        ${info.items.map(i => `<li>${i}</li>`).join('')}
+      </ul>
+    `;
+  }
+
+  const btnText = document.getElementById('btnConfirmLaunchText');
+  if (btnText && info) {
+    btnText.textContent = `Confirmar e Iniciar ${info.label.split(' (')[0]} (Pestaña Nueva) ↗`;
+  }
+}
+
+function openSimulatorConfirmModal(examId = 'reading-1') {
   const modal = document.getElementById('simulatorConfirmModal');
-  if (modal) modal.classList.add('open');
+  if (modal) {
+    selectSimExamInModal(examId);
+    modal.classList.add('open');
+  }
 }
 
 function closeSimulatorConfirmModal() {
@@ -904,7 +1044,7 @@ function closeSimulatorConfirmModal() {
 
 function confirmAndLaunchSimulator() {
   closeSimulatorConfirmModal();
-  window.open('pet-simulator.html', '_blank', 'noopener');
+  window.open(`pet-simulator.html?exam=${encodeURIComponent(selectedSimExamId)}`, '_blank', 'noopener');
 }
 
 function speakWithStrictEnglishVoice(word, accent) {
@@ -1181,6 +1321,7 @@ window.openPetTopicsModal = openPetTopicsModal;
 window.closePetTopicsModal = closePetTopicsModal;
 window.openSimulatorConfirmModal = openSimulatorConfirmModal;
 window.closeSimulatorConfirmModal = closeSimulatorConfirmModal;
+window.selectSimExamInModal = selectSimExamInModal;
 window.confirmAndLaunchSimulator = confirmAndLaunchSimulator;
 
 // =============================================================================

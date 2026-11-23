@@ -467,15 +467,15 @@
             </div>
           </div>
 
-          <!-- 3. Botón Aparte para el Simulador (Abre aviso de confirmación antes de iniciar) -->
+          <!-- 3. Botón Aparte para el Simulador (Abre selector por habilidad y aviso antes de iniciar) -->
           <div class="simulator-action-card" id="simulatorActionCard" style="display: none;">
             <div>
               <h3 style="margin: 0; font-size: 1.15rem; color: var(--color-ink);">Simulador Cambridge B1 Preliminary (PET)</h3>
               <p style="margin: 4px 0 0 0; font-size: 0.86rem; color: var(--color-muted);">
-                Reading (6 Partes) y Writing en inglés con cronómetro oficial.
+                Pruebas independientes divididas por habilidad: Reading, Writing, Listening y Speaking.
               </p>
             </div>
-            <button type="button" class="btn btn-alligator" id="btnOpenSimNotice" onclick="openSimulatorConfirmModal()" style="white-space: nowrap;">
+            <button type="button" class="btn btn-alligator" id="btnOpenSimNotice" onclick="openSimulatorConfirmModal('reading-1')" style="white-space: nowrap;">
               <span>⏱️ Abrir Simulador</span>
             </button>
           </div>
@@ -1074,51 +1074,68 @@
   </div>
 
   <!-- ==========================================
-       MODAL DE AVISO Y CONFIRMACIÓN DEL SIMULADOR CAMBRIDGE PET B1
+       MODAL DE SELECCIÓN Y CONFIRMACIÓN DEL SIMULADOR CAMBRIDGE PET B1
+       (DIVIDIDO POR READING, WRITING, LISTENING Y SPEAKING)
        ========================================== -->
   <div class="modal-overlay" id="simulatorConfirmModal">
-    <div class="modal-dialog" style="max-width: 640px; max-height: 90vh; overflow-y: auto;">
+    <div class="modal-dialog" style="max-width: 720px; max-height: 90vh; overflow-y: auto;">
       <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid var(--color-mist); padding-bottom: 12px; margin-bottom: 14px;">
         <div>
           <span class="badge badge-cerulean" style="font-size: 0.74rem;">Cambridge Assessment English • B1 Preliminary</span>
-          <h3 style="margin: 6px 0 0 0; font-size: 1.32rem; color: var(--color-ink);">⏱️ Aviso Antes de Iniciar el Simulador</h3>
+          <h3 style="margin: 6px 0 0 0; font-size: 1.32rem; color: var(--color-ink);">⏱️ Simulador PET B1 — Selecciona tu Prueba</h3>
         </div>
         <button type="button" class="btn btn-outline btn-sm" onclick="closeSimulatorConfirmModal()" style="padding: 4px 10px;">✕</button>
       </div>
 
-      <div style="background-color: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius-sm); padding: 14px 16px; margin-bottom: 14px; font-size: 0.88rem; color: #1e3a8a; line-height: 1.55;">
-        <strong>📌 Condiciones de la Prueba:</strong>
-        <ul style="margin: 6px 0 0 18px; padding: 0;">
-          <li><strong>Idioma:</strong> Toda la prueba estará <strong>100% en inglés</strong>, igual al examen real.</li>
-          <li><strong>Duración oficial:</strong> <strong>45 minutos</strong> para Reading (6 partes) y <strong>45 minutos</strong> para Writing.</li>
-          <li><strong>Modalidad:</strong> Al confirmar, el examen se abrirá en una <strong>pestaña nueva a página completa</strong> con cronómetro activo.</li>
-        </ul>
+      <!-- Selector dividido por las 4 habilidades (Reading, Writing, Listening, Speaking) -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 10px; margin-bottom: 14px;">
+        <!-- READING -->
+        <div style="background: var(--color-linen); border: 1px solid var(--color-mist); border-radius: var(--radius-sm); padding: 12px;">
+          <div style="font-weight: 700; font-size: 0.86rem; color: var(--color-ink); margin-bottom: 8px;">📖 Reading (45 min • 6 Partes)</div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <button type="button" class="topic-switch-pill active" data-sim-exam="reading-1" onclick="selectSimExamInModal('reading-1')">Reading 1</button>
+            <button type="button" class="topic-switch-pill" data-sim-exam="reading-2" onclick="selectSimExamInModal('reading-2')">Reading 2</button>
+          </div>
+        </div>
+
+        <!-- WRITING -->
+        <div style="background: var(--color-linen); border: 1px solid var(--color-mist); border-radius: var(--radius-sm); padding: 12px;">
+          <div style="font-weight: 700; font-size: 0.86rem; color: var(--color-ink); margin-bottom: 8px;">✍️ Writing (45 min • 3 Partes)</div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <button type="button" class="topic-switch-pill" data-sim-exam="writing-1" onclick="selectSimExamInModal('writing-1')">Writing 1</button>
+            <button type="button" class="topic-switch-pill" data-sim-exam="writing-2" onclick="selectSimExamInModal('writing-2')">Writing 2</button>
+            <button type="button" class="topic-switch-pill" data-sim-exam="writing-3" onclick="selectSimExamInModal('writing-3')">Writing 3</button>
+          </div>
+        </div>
+
+        <!-- LISTENING -->
+        <div style="background: var(--color-linen); border: 1px solid var(--color-mist); border-radius: var(--radius-sm); padding: 12px;">
+          <div style="font-weight: 700; font-size: 0.86rem; color: var(--color-ink); margin-bottom: 8px;">🎧 Listening (35 min • 4 Partes)</div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <button type="button" class="topic-switch-pill" data-sim-exam="listening-1" onclick="selectSimExamInModal('listening-1')">Listening 1</button>
+            <button type="button" class="topic-switch-pill" data-sim-exam="listening-2" onclick="selectSimExamInModal('listening-2')">Listening 2</button>
+          </div>
+        </div>
+
+        <!-- SPEAKING -->
+        <div style="background: var(--color-linen); border: 1px solid var(--color-mist); border-radius: var(--radius-sm); padding: 12px;">
+          <div style="font-weight: 700; font-size: 0.86rem; color: var(--color-ink); margin-bottom: 8px;">🗣️ Speaking (12 min • Imágenes y Fotos)</div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <button type="button" class="topic-switch-pill" data-sim-exam="speaking-1" onclick="selectSimExamInModal('speaking-1')">Speaking 1</button>
+            <button type="button" class="topic-switch-pill" data-sim-exam="speaking-2" onclick="selectSimExamInModal('speaking-2')">Speaking 2</button>
+          </div>
+        </div>
       </div>
 
-      <div style="background-color: var(--color-linen); border: 1px solid var(--color-mist); border-radius: var(--radius-sm); padding: 14px 16px; margin-bottom: 16px;">
-        <div style="font-weight: 700; font-size: 0.9rem; color: var(--color-ink); margin-bottom: 8px;">📋 Qué vas a rendir en este simulador:</div>
-        <div style="font-size: 0.84rem; color: var(--color-graphite); line-height: 1.65;">
-          <div><strong>Reading Paper (6 Partes — 36 preguntas • 45 min):</strong></div>
-          <ul style="margin: 4px 0 10px 18px; padding: 0;">
-            <li><strong>Part 1 (Q1–5):</strong> Signs and short texts (Test 1 y Test 2 disponibles)</li>
-            <li><strong>Part 2 (Q6–10):</strong> Match 5 people to 8 texts</li>
-            <li><strong>Part 3 (Q21–25):</strong> Long text &amp; multiple-choice questions</li>
-            <li><strong>Part 4 (Q16–20):</strong> Choose the correct sentence to put in the gaps</li>
-            <li><strong>Part 5 (Q26–35):</strong> Read a text and choose missing words</li>
-            <li><strong>Part 6 (Gaps 1–6):</strong> Read and write one missing word in each gap</li>
-          </ul>
-          <div><strong>Writing Paper (3 Partes • 45 min):</strong></div>
-          <ul style="margin: 4px 0 0 18px; padding: 0;">
-            <li><strong>Part 1:</strong> Sentence transformations (auto-checked)</li>
-            <li><strong>Part 2 &amp; Part 3:</strong> Short communicative message &amp; extended writing (con envío directo al WhatsApp del Prof. Jhon Jairo Chávez)</li>
-          </ul>
-        </div>
+      <!-- Aviso dinámico de duración y contenido de la prueba seleccionada -->
+      <div id="simModalNoticeBox" style="background-color: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius-sm); padding: 14px 16px; margin-bottom: 16px; font-size: 0.86rem; color: #1e3a8a; line-height: 1.6;">
+        <!-- Inyectado dinámicamente por selectSimExamInModal() -->
       </div>
 
       <div style="display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap; border-top: 1px solid var(--color-mist); padding-top: 14px;">
         <button type="button" class="btn btn-outline" onclick="closeSimulatorConfirmModal()">Cancelar</button>
         <button type="button" class="btn btn-alligator" id="btnConfirmLaunchSimulator" onclick="confirmAndLaunchSimulator()">
-          <span>Confirmar e Iniciar Prueba (Pestaña Nueva) ↗</span>
+          <span id="btnConfirmLaunchText">Confirmar e Iniciar Reading 1 (Pestaña Nueva) ↗</span>
         </button>
       </div>
     </div>
