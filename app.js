@@ -954,25 +954,25 @@ const simExamCatalog = {
   'listening-1': {
     label: 'Listening 1 (Cambridge Test 1)',
     duration: '35 minutos',
-    skill: 'Listening Paper — 4 Partes (25 preguntas)',
+    skill: 'Listening Paper — 4 Partes con Audios Oficiales Integrados (25 preguntas)',
     items: [
-      '<strong>Part 1 (Q1–7):</strong> Seven short recordings with 3-option picture multiple choice',
-      '<strong>Part 2 (Q8–13):</strong> Interview with singer Nick Parker (3-option multiple choice)',
-      '<strong>Part 3 (Q14–19):</strong> Gap-fill notes: Saturday course',
-      '<strong>Part 4 (Q20–25):</strong> True / False (YES / NO) conversation: Thomas &amp; Ruby sports day poster',
-      '<em>Incluye reproductor y cargador de archivo de audio MP3.</em>'
+      '<strong>Part 1 (Q1–7):</strong> Seven short recordings with 3-option picture multiple choice (Tracks 1A &amp; 1B)',
+      '<strong>Part 2 (Q8–13):</strong> Interview with singer Nick Parker (3-option multiple choice + Official Audio)',
+      '<strong>Part 3 (Q14–19):</strong> Gap-fill notes: Saturday course (+ Official Audio)',
+      '<strong>Part 4 (Q20–25):</strong> True / False (YES / NO) conversation: Thomas &amp; Ruby sports day poster (+ Official Audio)',
+      '<em>✓ Todos los audios oficiales Cambridge MP3 están integrados y listos para reproducir en cada parte.</em>'
     ]
   },
   'listening-2': {
     label: 'Listening 2 (Cambridge Test 2)',
     duration: '35 minutos',
-    skill: 'Listening Paper — 4 Partes (25 preguntas)',
+    skill: 'Listening Paper — 4 Partes con Audios Oficiales Integrados (25 preguntas)',
     items: [
-      '<strong>Part 1 (Q1–7):</strong> Seven short recordings with 3-option picture multiple choice',
-      '<strong>Part 2 (Q8–13):</strong> Six 3-option multiple choice questions',
-      '<strong>Part 3 (Q14–19):</strong> Gap-fill notes: Griffon the Horse',
-      '<strong>Part 4 (Q20–25):</strong> True / False (YES / NO) conversation: Jamie &amp; Miranda sharing a bedroom',
-      '<em>Incluye reproductor y cargador de archivo de audio MP3.</em>'
+      '<strong>Part 1 (Q1–7):</strong> Seven short recordings with 3-option picture multiple choice (+ Official Audio)',
+      '<strong>Part 2 (Q8–13):</strong> Six 3-option multiple choice questions (+ Official Audio)',
+      '<strong>Part 3 (Q14–19):</strong> Gap-fill notes: Griffon the Horse (incluye cargador MP3)',
+      '<strong>Part 4 (Q20–25):</strong> True / False (YES / NO) conversation: Jamie &amp; Miranda sharing a bedroom (+ Official Audio)',
+      '<em>✓ Audios oficiales Cambridge MP3 integrados directamente en cada parte.</em>'
     ]
   },
   'speaking-1': {

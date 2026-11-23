@@ -1273,7 +1273,7 @@
         title: 'Listening 1 — Cambridge B1 Preliminary (Test 1)',
         timerLabel: 'LISTENING 1 (35 MIN)',
         durationSec: 35 * 60,
-        defaultAudioSrc: 'assets/audio/listening/test1.mp3',
+        defaultAudioSrc: 'assets/audio/listening/t1_part1_1.mp3',
         parts: [
           {
             num: 1,
@@ -1281,6 +1281,10 @@
             tag: 'Listening 1 • Part 1 • Questions 1–7',
             heading: 'Part 1: Seven Short Recordings (pp. 24–26)',
             instructions: 'There are seven questions in this part. For each question there are three pictures and a short recording. Choose the correct answer A, B or C.',
+            audioTracks: [
+              { title: 'Part 1 Track 1 — Questions 1–2 (and Intro)', src: 'assets/audio/listening/t1_part1_1.mp3' },
+              { title: 'Part 1 Track 2 — Questions 3–5 & 6–7', src: 'assets/audio/listening/t1_part1_2.mp3' }
+            ],
             images: [
               { src: 'assets/exam-pages/t1_list_p1.jpg', cap: 'Listening 1 — Part 1 (Example & Questions 1–2)' },
               { src: 'assets/exam-pages/t1_list_p2.jpg', cap: 'Listening 1 — Part 1 (Questions 3–5)' },
@@ -1303,6 +1307,9 @@
             tag: 'Listening 1 • Part 2 • Questions 8–13',
             heading: 'Part 2: Interview with Singer Nick Parker (pp. 27–28)',
             instructions: 'You will hear an interview with a singer called Nick Parker who plays in a band called Krispy with his sister Mel. For each question, choose the correct answer A, B or C.',
+            audioTracks: [
+              { title: 'Part 2 Official Recording — Questions 8–13 (Nick Parker Interview)', src: 'assets/audio/listening/t1_part2.mp3' }
+            ],
             images: [
               { src: 'assets/exam-pages/t1_list_p4.jpg', cap: 'Listening 1 — Part 2 (Questions 8–11)' },
               { src: 'assets/exam-pages/t1_list_p5.jpg', cap: 'Listening 1 — Part 2 (Questions 12–13)' }
@@ -1323,6 +1330,9 @@
             tag: 'Listening 1 • Part 3 • Questions 14–19',
             heading: 'Part 3: Saturday Course — Fill in the Missing Information (p. 29)',
             instructions: 'You will hear a man called Ben telling a youth group about a course they can do on Saturdays. For each question (14–19), fill in the missing word or number.',
+            audioTracks: [
+              { title: 'Part 3 Official Recording — Questions 14–19 (Saturday Course)', src: 'assets/audio/listening/t1_part3.mp3' }
+            ],
             images: [
               { src: 'assets/exam-pages/t1_list_p6.jpg', cap: 'Listening 1 — Part 3 (Questions 14–19)' }
             ],
@@ -1342,6 +1352,9 @@
             tag: 'Listening 1 • Part 4 • Questions 20–25',
             heading: 'Part 4: School Sports Day Poster — YES (A) or NO (B) (p. 30)',
             instructions: 'Decide if each sentence (20–25) is correct or incorrect. Choose A for YES or B for NO.',
+            audioTracks: [
+              { title: 'Part 4 Official Recording — Questions 20–25 (School Sports Day Poster)', src: 'assets/audio/listening/t1_part4.mp3' }
+            ],
             images: [
               { src: 'assets/exam-pages/t1_list_p7.jpg', cap: 'Listening 1 — Part 4 (Questions 20–25)' }
             ],
@@ -1367,7 +1380,7 @@
         title: 'Listening 2 — Cambridge B1 Preliminary (Test 2)',
         timerLabel: 'LISTENING 2 (35 MIN)',
         durationSec: 35 * 60,
-        defaultAudioSrc: 'assets/audio/listening/test2.mp3',
+        defaultAudioSrc: 'assets/audio/listening/t2_part1.mp3',
         parts: [
           {
             num: 1,
@@ -1375,6 +1388,9 @@
             tag: 'Listening 2 • Part 1 • Questions 1–7',
             heading: 'Part 1: Seven Short Recordings (pp. 44–46)',
             instructions: 'There are seven questions in this part. For each question there are three pictures and a short recording. Choose the correct answer A, B or C.',
+            audioTracks: [
+              { title: 'Part 1 Official Recording — Questions 1–7', src: 'assets/audio/listening/t2_part1.mp3' }
+            ],
             images: [
               { src: 'assets/exam-pages/t2_list_p1.jpg', cap: 'Listening 2 — Part 1 (Example & Questions 1–2)' },
               { src: 'assets/exam-pages/t2_list_p2.jpg', cap: 'Listening 2 — Part 1 (Questions 3–5)' },
@@ -1397,6 +1413,9 @@
             tag: 'Listening 2 • Part 2 • Questions 8–13',
             heading: 'Part 2: Multiple-Choice Questions (pp. 47–48)',
             instructions: 'For each question (8–13), choose the correct answer A, B or C.',
+            audioTracks: [
+              { title: 'Part 2 Official Recording — Questions 8–13', src: 'assets/audio/listening/t2_part2.mp3' }
+            ],
             images: [
               { src: 'assets/exam-pages/t2_list_p4.jpg', cap: 'Listening 2 — Part 2 (Questions 8–11)' },
               { src: 'assets/exam-pages/t2_list_p5.jpg', cap: 'Listening 2 — Part 2 (Questions 12–13)' }
@@ -1436,6 +1455,9 @@
             tag: 'Listening 2 • Part 4 • Questions 20–25',
             heading: 'Part 4: Sharing a Bedroom — YES (A) or NO (B) (p. 50)',
             instructions: 'Decide if each sentence (20–25) is correct or incorrect. Choose A for YES or B for NO.',
+            audioTracks: [
+              { title: 'Part 4 Official Recording — Questions 20–25 (Sharing a Bedroom)', src: 'assets/audio/listening/t2_part4.mp3' }
+            ],
             images: [
               { src: 'assets/exam-pages/t2_list_p7.jpg', cap: 'Listening 2 — Part 4 (Questions 20–25)' }
             ],
@@ -1655,15 +1677,17 @@
           audioBarHtml = `
             <div class="listening-audio-bar">
               <div>
-                <div style="font-weight: 700; font-size: 0.96rem;">🎧 Official Listening Audio Player (${exam.title})</div>
+                <div style="font-weight: 700; font-size: 0.96rem;">🎧 Official Cambridge Listening Audio (${exam.title})</div>
                 <div style="font-size: 0.8rem; color: #cbd5e1; margin-top: 2px;">
-                  Load your local MP3/WAV recording below or play the assigned track. In the real exam, each recording is heard twice.
+                  Each part below includes its official Cambridge recording ready to play. In the real exam, each recording is heard twice.
                 </div>
               </div>
               <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                <audio id="listeningAudioPlayer" controls style="height: 36px;"></audio>
-                <label class="bar-btn" style="cursor: pointer; background: rgba(34,197,94,0.25); border-color: #4ade80;">
-                  📂 Load Audio MP3/WAV
+                <span style="font-size: 0.78rem; background: rgba(34,197,94,0.22); border: 1px solid #4ade80; color: #bbf7d0; padding: 6px 12px; border-radius: 999px; font-weight: 700;">
+                  ✓ Official MP3 Tracks Ready Below
+                </span>
+                <label class="bar-btn" style="cursor: pointer; background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.3);">
+                  📂 Load Custom MP3/WAV
                   <input type="file" accept="audio/*" style="display: none;" onchange="loadCustomListeningAudio(this)">
                 </label>
               </div>
@@ -1682,6 +1706,39 @@
         `;
 
         const partsHtml = exam.parts.map((p, idx) => {
+          let partAudioBoxHtml = '';
+          if (exam.skill === 'listening') {
+            const tracksListHtml = (p.audioTracks && p.audioTracks.length > 0)
+              ? p.audioTracks.map((tr, tIdx) => `
+                  <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: 10px; padding: 10px 14px;">
+                    <div style="font-weight: 700; font-size: 0.88rem; color: #f8fafc;">
+                      🔊 ${tr.title}
+                    </div>
+                    <audio class="part-audio-player" id="partAudio_${p.num}_${tIdx}" controls preload="metadata" src="${tr.src}" style="height: 36px; min-width: 260px; flex: 1; max-width: 440px;"></audio>
+                  </div>
+                `).join('')
+              : `
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: 10px; padding: 10px 14px;">
+                  <div style="font-weight: 600; font-size: 0.86rem; color: #e2e8f0;">
+                    🔊 Custom Audio Player for ${p.label} (Use "Load Custom MP3/WAV" above)
+                  </div>
+                  <audio class="part-audio-player" id="partAudio_${p.num}_0" controls style="height: 36px; min-width: 260px; flex: 1; max-width: 440px;"></audio>
+                </div>
+              `;
+
+            partAudioBoxHtml = `
+              <div style="background: linear-gradient(135deg, #0f172a 0%, #003865 100%); border-radius: 12px; padding: 14px 16px; margin-bottom: 18px; display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                  <span style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #93c5fd;">
+                    🎧 Official Audio — ${p.label}
+                  </span>
+                  <span style="font-size: 0.76rem; color: #cbd5e1;">Press Play (▶) to start the recording for this part</span>
+                </div>
+                ${tracksListHtml}
+              </div>
+            `;
+          }
+
           const leftContent = p.images
             ? p.images.map(im => `
                 <div class="scan-frame">
@@ -1719,6 +1776,7 @@
                 <button type="button" class="btn btn-green" onclick="gradeCurrentExam()">✓ Submit &amp; Check All Parts</button>
               </div>
               <div class="part-instructions"><strong>Instructions:</strong> ${p.instructions}</div>
+              ${partAudioBoxHtml}
               <div class="split-exam-grid">
                 <div class="exam-sheets-col">${leftContent}</div>
                 <div class="answer-sheet-col">
@@ -1920,6 +1978,9 @@
       activePartIndex = partNum;
       const exam = EXAMS[activeExamId];
       if (!exam || !exam.parts) return;
+      document.querySelectorAll('audio.part-audio-player').forEach(aud => {
+        try { aud.pause(); } catch (e) {}
+      });
       exam.parts.forEach(p => {
         const el = document.getElementById(`partCard_${p.num}`);
         if (el) el.style.display = p.num === partNum ? 'block' : 'none';
@@ -1934,11 +1995,11 @@
       if (!input.files || !input.files[0]) return;
       const file = input.files[0];
       const url = URL.createObjectURL(file);
-      const player = document.getElementById('listeningAudioPlayer');
+      const player = document.getElementById(`partAudio_${activePartIndex}_0`) || document.querySelector('audio.part-audio-player');
       if (player) {
         player.src = url;
         player.play().catch(() => {});
-        showToast(`Loaded audio track: ${file.name}`);
+        showToast(`Loaded audio into Part ${activePartIndex}: ${file.name}`);
       }
     }
 
